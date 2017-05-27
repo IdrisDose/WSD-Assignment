@@ -1,13 +1,31 @@
-package uts.wsd.idris;
+package uts.wsd.dataLayer;
+
+import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created by Idris on 8/05/17.
  */
-public class Booking {
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "booking")
+public class Booking implements Serializable{
+    
+    @XmlElement(name = "passenger")
     private User passenger;
+    
+    @XmlElement(name = "flight")
     private Flight flight;
+    
+    @XmlElement(name = "fromcity")
     private String fromCity;
+    
+    @XmlElement(name = "tocity")
     private String toCity;
+    
+    @XmlElement(name = "status")
     private String bookingStatus;
 
 

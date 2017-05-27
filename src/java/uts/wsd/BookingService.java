@@ -1,5 +1,6 @@
-package uts.wsd.idris;
+package uts.wsd;
 
+import uts.wsd.dataLayer.Flight;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
