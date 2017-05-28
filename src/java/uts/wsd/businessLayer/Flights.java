@@ -7,10 +7,7 @@ package uts.wsd.businessLayer;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import uts.wsd.dataLayer.Flight;
 
 /**
@@ -28,11 +25,11 @@ public class Flights implements Serializable{
         return list;
     }
     
-    public void addFlight(Flight user) {
-        list.add(user);
+    public void addFlight(Flight value) {
+        list.add(value);
     }
-    public void removeFlight(Flight user) {
-        list.remove(user);
+    public void removeFlight(Flight value) {
+        list.remove(value);
     }
     
     public Flight getFlightFromID(String id){
@@ -42,5 +39,9 @@ public class Flights implements Serializable{
             }
         }
         return null;
+    }
+    
+    public Flight getFirstFlight(){
+        return list.get(0);
     }
 }

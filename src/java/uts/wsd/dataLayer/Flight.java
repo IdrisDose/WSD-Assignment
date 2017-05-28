@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.*;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "booking")
+@XmlRootElement(name = "flight")
 public class Flight implements Serializable{
     
     @XmlElement(name = "id")
@@ -54,7 +54,8 @@ public class Flight implements Serializable{
         this.toCity = toCity;
         this.flightType = flightType;
     }
-
+    
+    public Flight(){ }
 
     public String getId() {
         return id;

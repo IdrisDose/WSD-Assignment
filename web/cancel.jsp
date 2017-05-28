@@ -9,8 +9,8 @@
         <title>WSD Airline</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="style.css"/> 
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <style>
@@ -18,13 +18,13 @@
 
     </head>
     <body>
+
         <!--menu bar-->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-send"></span>   WSD Airline</a>
             </div>
-
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="login.html"><span class="glyphicon glyphicon-user"></span>  Log in </a></li>
             </ul>
@@ -43,60 +43,74 @@
                     </div>
 
                     <div class="panel-body">
-                        <div align="Left" class="tab-content" id="Flight">
+                        <div align="Left" class="tab-content" id="Flight">                                    
                             <form class="form-horizontal" role="form">
 
                                 <div class="form-group">
+                                    <label class="control-label col-sm-5" for="firstName">First name:</label>
+                                    <div class="col--4">
+                                        <label class="control-label col-sm-3" for="firstName">Steven</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-5" for="firstName">Last name:</label>
+                                    <div class="col--4">
+                                        <label class="control-label col-sm-3" for="firstName">Job</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label class="control-label col-sm-5" for="firstName">Departure From:</label>
-                                    <div>
-                                        <label class="control-label col-sm-4" for="firstName">Sydney</label>
+                                    <div class="col--4">
+                                        <label class="control-label col-sm-3" for="firstName">Sydney</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-5" for="firstName"> To:</label>
-                                    <div>
-                                        <label class="control-label col-sm-4" for="firstName">Hong Kong</label>
+                                    <div class="col--4">
+                                        <label class="control-label col-sm-3" for="firstName">Hong Kong</label>
                                     </div>
                                 </div>
 
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-5" for="firstName"> Date:</label>
-                                    <div>
-                                        <label class="control-label col-sm-4" for="firstName">2016/07/12</label>
+                                    <div class="col--4">
+                                        <label class="control-label col-sm-3" for="firstName">2016/07/12</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-5" for="firstName">Return From:</label>
-                                    <div>
-                                        <label class="control-label col-sm-4" for="firstName">Hong Kong</label>
+                                    <div class="col--4">
+                                        <label class="control-label col-sm-3" for="firstName">Hong Kong</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-5" for="firstName">Return To:</label>
-                                    <div>
-                                        <label class="control-label col-sm-4" for="firstName">Sydney</label>
+                                    <div class="col--4">
+                                        <label class="control-label col-sm-3" for="firstName">Sydney</label>
                                     </div>
                                 </div>
 
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-5" for="firstName"> Date:</label>
-                                    <div>
-                                        <label class="control-label col-sm-4" for="firstName">2016/08/12</label>
+                                    <div class="col--4">
+                                        <label class="control-label col-sm-3" for="firstName">2016/08/12</label>
                                     </div>
                                 </div>
 
                             </form>
                             <div class="button">
-                                <button type="submit" class="btn btn-default" onclick="location.href = 'BookingConfirm.html'">Confirm</button>
-                                <button type="submit" class="btn btn-default" onclick="location.href = 'User.html'">Back</button>
+                                <button type="submit" class="btn btn-default" onclick="location.href = '#'">Cancel Booking</button>
+                                <button type="submit" class="btn btn-default" onclick="location.href = 'AllBooking.html'">Back</button>
                             </div>
                         </div>  
-                    </div>
+                    </div> 
                 </div>
                 <!-- Footer -->
                 <footer class="footer">

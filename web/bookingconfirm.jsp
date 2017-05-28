@@ -2,7 +2,6 @@
 <%@page import="uts.wsd.businessLayer.*"%>
 <%@page import="uts.wsd.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
@@ -26,23 +25,37 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-send"></span>   WSD Airline</a>
             </div>
-
-            <ul class="nav navbar-nav navbar-right">		
-                <li><a href="index.html"><span class="glyphicon glyphicon-log-in"  ></span> Log out</a></li>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html"><span class="glyphicon glyphicon-user"></span>  Log out </a></li>
             </ul>
         </div>
     </nav>
 
     <!--table -->
-    <div class="button">
-        <p class="h1">You are logged in with Admin account </p>	
-        <button type="#" class="btn btn-inverse" onclick="location.href = 'AllBooking.html'">View all booking</button>
-        <p class="space">  </p>
-        <button type="submit" class="btn btn-inverse" onclick="location.href = 'MemberList.html'">Cancel custmer's membership</button>
-    </div>                               
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; WSD.UTS 2017</p> 
-    </footer>	
+    <div class="container col-sm-8">
+        <div class="col-sm-6">
+        </div>
+        <div class="col-sm-6">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading clearfix"> 
+                        <p class="panel-title pull-left" >Thank you for your booking</p>
+                    </div>
+                    <div class="panel-body">
+                        <div align="Left" class="tab-content" id="Flight">			
+                            <div class="button">
+                                <button type="submit" class="btn btn-default" onclick="location.href = 'User.html'">Back</button>
+                            </div>
+                        </div>  
+                    </div>    
+                </div>
+                <!-- Footer -->
+                <footer class="footer">
+                    <p>&copy; WSD.UTS 2017</p> 
+                </footer>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
