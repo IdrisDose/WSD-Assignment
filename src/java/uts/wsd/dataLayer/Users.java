@@ -7,10 +7,7 @@ package uts.wsd.dataLayer;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import uts.wsd.businessLayer.User;
 
 /**
@@ -33,6 +30,7 @@ public class Users implements Serializable{
     public void removeUser(User user) {
         list.remove(user);
     }
+    
     public User login(String email, String password) {
         // For each user in the list...
         for (User user : list) {
@@ -40,5 +38,15 @@ public class Users implements Serializable{
                 return user; // Login correct. Return this user.
         }
         return null; // Login incorrect. Return null.
+    }
+    
+    public boolean userExists(String email, String password){
+        //For each user in the list..
+        for(User user: list){
+            //Check if details exist
+            if (user.getEmail().equals(email) && user.getPassword().equals(password))
+                return true; //Return true if details exist
+        }
+        return false; //Return false if details exist
     }
 }

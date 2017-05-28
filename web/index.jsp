@@ -34,9 +34,7 @@
 
     <!--table -->
     <div class="container col-sm-8">
-        <div class="col-sm-6">
-        </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 col-sm-offset-6">
             <div class="panel-group">
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix"> 

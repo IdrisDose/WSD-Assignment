@@ -11,8 +11,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+
+        <title>WSD Airline</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="style.css" /> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <style>
+        </style>
+
     </head>
     <%
         String fname = request.getParameter("firstname");
@@ -29,12 +38,30 @@
         <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
     </jsp:useBean>
     <body>
-        <h1>Hello World!</h1>
-        <ul>
-            <li>NAME: <%=name%></li>
-            <li>EMAIL: <%=email%></li>
-            <li>PWORD: <%=pwd%></li>
-            <li>DOB: <%=dob%></li>
-        </ul>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-send"></span>WSD Airline</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="register.jsp"><span class="glyphicon glyphicon-user"></span>Sign up </a></li>
+                    <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"  ></span>Login</a></li>
+                </ul>
+            </div>
+        </nav>
+        <h1>Registration</h1>
+    <%
+        Users users = bookApp.getUsers();
+        
+        if(users.userExists(email, pwd)){
+    %>
+        <p>You already exist. Please try logging in.</p>
+    <%
+        } else {
+    %>
+        <p>You have been registered <a href="login.jsp">Click Here!</a> to login.</p>
+    <%
+        }
+    %>
     </body>
 </html>
