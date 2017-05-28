@@ -23,10 +23,10 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-send"></span>   WSD Airline</a>
+                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-send"></span>WSD Airline</a>
             </div>    
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="register.html"><span class="glyphicon glyphicon-user"></span>  Sign up </a></li>
+                <li><a href="register.jsp"><span class="glyphicon glyphicon-user"></span>Sign up</a></li>
             </ul>
         </div>
     </nav>
@@ -39,7 +39,7 @@
             <div class="panel-group">
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix"> 
-                        <p class="panel-title pull-left">Please enter your registed account</p>
+                        <p class="panel-title pull-left">Please enter your registered account</p>
                     </div>
                     <div class="panel-body">
                         <div align="Left" class="tab-content" id="Flight">
@@ -60,7 +60,8 @@
                             </form>
 
                             <div class="button">
-                                <button type="submit" class="btn btn-default" onclick="location.href = '#'">Login</button>        							<button type="submit" class="btn btn-default" onclick="location.href = 'index.html'">Back</button>
+                                <button type="submit" class="btn btn-default" onclick="location.href = '#'">Login</button> 
+                                <button type="submit" class="btn btn-default" onclick="location.href = 'index.jsp'">Back</button>
                             </div>
                         </div>                
                     </div>

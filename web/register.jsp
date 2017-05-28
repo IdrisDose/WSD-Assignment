@@ -23,7 +23,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-send"></span>   WSD Airline</a>
+                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-send"></span>WSD Airline</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="login.html"><span class="glyphicon glyphicon-user"></span>  Log in </a></li>
@@ -46,47 +46,46 @@
                         <div align="Left" class="tab-content" id="Flight">
                             <form class="form-horizontal" role="form" action="register_action.jsp" method="POST">
                                 <div class="form-group">
-                                    <label class="control-label col-sm-4" for="firstName">First name:</label>
+                                    <label class="control-label col-sm-4" for="firstname">First name:</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="firstName" placeholder="Enter your First name">
+                                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter your First name">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-sm-4" for="firstName">Last name:</label>
+                                    <label class="control-label col-sm-4" for="lastname">Last name:</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="lastName" placeholder="Enter your Last name">
+                                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter your Last name">
                                     </div>
                                 </div>
-
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-4" for="email">Email:</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="email" placeholder="Enter email">
+                                        <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-4" for="pwd">Password:</label>
                                     <div class="col-sm-8">          
-                                        <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-sm-4" for="pwd">Date of Birth:</label>
+                                    <label class="control-label col-sm-4" for="dob">Date of Birth:</label>
                                     <div class="col-sm-8">          
-                                        <input type="text" class="form-control" id="DOB" placeholder="Enter your birth date">
+                                        <input type="text" class="form-control" id="dob" name="dob" placeholder="Enter your birth date">
                                     </div>
                                 </div>
-
+                                
+                                <div class="button">
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                    <a href class="btn btn-default" url="index.jsp">Back</a>
+                                </div>
                             </form>
 
-                            <div class="button">
-                                <button type="submit" class="btn btn-default" onclick="location.href = 'index.html'">Submit</button>
-                                <button type="submit" class="btn btn-default" onclick="location.href = 'index.html'">Back</button>
-                            </div>
                         </div>    
                     </div>                
                 </div>

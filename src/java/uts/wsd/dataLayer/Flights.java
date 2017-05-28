@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uts.wsd.businessLayer;
+package uts.wsd.dataLayer;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import javax.xml.bind.annotation.*;
-import uts.wsd.dataLayer.Flight;
+import uts.wsd.businessLayer.Flight;
 
 /**
  *

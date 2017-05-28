@@ -1,6 +1,6 @@
 package uts.wsd;
 
-import uts.wsd.dataLayer.Flight;
+import uts.wsd.businessLayer.Flight;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

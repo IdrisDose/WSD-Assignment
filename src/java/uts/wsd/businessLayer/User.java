@@ -1,4 +1,4 @@
-package uts.wsd.dataLayer;
+package uts.wsd.businessLayer;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;

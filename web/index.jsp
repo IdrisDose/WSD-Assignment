@@ -26,8 +26,8 @@
                 <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-send"></span>   WSD Airline</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="register.html"><span class="glyphicon glyphicon-user"></span>  Sign up </a></li>
-                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"  ></span> Login</a></li>
+                <li><a href="register.jsp"><span class="glyphicon glyphicon-user"></span>  Sign up </a></li>
+                <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"  ></span> Login</a></li>
             </ul>
         </div>
     </nav>
