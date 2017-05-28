@@ -24,15 +24,13 @@
 
     </head>
     <%
+        String userPath = application.getRealPath("WEB-INF/users.xml");
         String fname = request.getParameter("firstname");
         String lname = request.getParameter("lastname");
         String name = fname+" "+lname;
         String email = request.getParameter("email");
         String pwd = request.getParameter("pwd");
         String dob = request.getParameter("dob");
-        String userPath = application.getRealPath("WEB-INF/users.xml");
-
-        
     %>
     <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
         <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
@@ -52,14 +50,22 @@
         <h1>Registration</h1>
     <%
         Users users = bookApp.getUsers();
-        
+        out.println(users.getList().size());
         if(users.userExists(email, pwd)){
     %>
-        <p>You already exist. Please try logging in.</p>
+    <p> You already exist. Please try logging in.<br />
+        <a href="login.jsp">Click Here!</a> to login.
+    </p>
     <%
         } else {
+            int id = users.getList().size()+1;
+            User user = new User(id,name,email,pwd,dob,"false");
+            users.getList().add(user);
+            
+            bookApp.updateUsersXML(users, userPath);
     %>
         <p>You have been registered <a href="login.jsp">Click Here!</a> to login.</p>
+        
     <%
         }
     %>

@@ -15,7 +15,7 @@ public class User implements Serializable{
     @XmlElement(name = "id")
     private int id;
     
-    @XmlElement(name = "fullname")
+    @XmlElement(name = "name")
     private String fullname;
     
     @XmlElement(name = "email")
@@ -28,9 +28,9 @@ public class User implements Serializable{
     private String dob;
     
     @XmlElement(name = "staff")
-    private boolean staff;
+    private String staff;
     
-    public User(int id, String fullname, String email, String password, String dob, boolean staff) {
+    public User(int id, String fullname, String email, String password, String dob, String staff) {
         this.id = id;
         this.fullname = fullname;
         this.email = email;
@@ -75,10 +75,10 @@ public class User implements Serializable{
     public void setDob(String dob) {
         this.dob = dob;
     }  
-    public void setStaff(boolean value){
+    public void setStaff(String value){
         this.staff = value;
     }   
-    public boolean isStaff(){
+    public String isStaff(){
         return this.staff;
     }
     

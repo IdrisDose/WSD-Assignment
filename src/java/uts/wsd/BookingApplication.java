@@ -55,7 +55,7 @@ public class BookingApplication {
             System.out.println("JAXBException.");
         }
     }
-    public void setBookingsPath(String path){
+    public void setBookingPath(String path){
         this.bookingPath = path;
         try{
             JAXBContext jc = JAXBContext.newInstance(Bookings.class);
@@ -74,10 +74,10 @@ public class BookingApplication {
         }
     }
     
-    public void setUsersPath(String path){
+    public void setUserPath(String path){
         this.userPath = path;
         try{
-            JAXBContext jc = JAXBContext.newInstance(Bookings.class);
+            JAXBContext jc = JAXBContext.newInstance(Users.class);
             Unmarshaller u = jc.createUnmarshaller();
             
             if(this.userPath==null || this.userPath.isEmpty())

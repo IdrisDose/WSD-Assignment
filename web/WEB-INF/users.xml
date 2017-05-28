@@ -1,3 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <users>
+    <user>
+        <id>1</id>
+        <name>Idris Test</name>
+        <email>admin@test.com</email>
+        <password>123</password>
+        <dob>09/01/1996</dob>
+        <staff>true</staff>
+    </user>
 </users>
