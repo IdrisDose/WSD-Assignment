@@ -6,9 +6,9 @@
 package uts.wsd.dataLayer;
 
 import java.io.Serializable;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
+import javax.xml.bind.annotation.*;
+import uts.wsd.businessLayer.Booking;
 
 /**
  *
@@ -17,5 +17,30 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "bookings")
 public class Bookings implements Serializable {
+    @XmlElement(name = "flight")
+    private ArrayList<Booking> list = new ArrayList<Booking>();
     
+    public ArrayList<Booking> getList() {
+        return list;
+    }
+    
+    public void addFlight(Booking value) {
+        list.add(value);
+    }
+    public void removeFlight(Booking value) {
+        list.remove(value);
+    }
+    
+    public Booking getBookingFromID(int id){
+        for( Booking booking : list){
+            if(id == booking.getId()){
+                return booking;
+            }
+        }
+        return null;
+    }
+    
+    public Booking getFirstFlight(){
+        return list.get(0);
+    }
 }

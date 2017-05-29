@@ -19,19 +19,7 @@
     </head>
     <body>
 
-        <!--menu bar-->
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-send"></span>WSD Airline</a>
-            </div>
-
-            <ul class="nav navbar-nav navbar-right">
-
-                <li><a href="index.html"><span class="glyphicon glyphicon-log-in"  ></span>Log out</a></li>
-            </ul>
-        </div>
-    </nav>
+    <jsp:include page="nav.jsp"/>
 
     <!--table -->
     <div class="container col-sm-8">
@@ -65,13 +53,10 @@
                                     <td>30-01-2017</td>
                                     <td><button type="submit" class="btn btn-default" onclick="location.href = 'cancelConfirm.html'">Cancel</button></td>
                                 </tr>
-
-
                         </table>
 
                         <div class="button">
-                            <button type="submit" class="btn btn-default" onclick="location.href = 'User.html'">Back</button>
-
+                            <a href="index.jsp" class="btn btn-default">Back</a>
                         </div>
                     </div>
                 </div>               

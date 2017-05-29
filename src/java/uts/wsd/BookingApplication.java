@@ -71,12 +71,13 @@ public class BookingApplication {
             System.out.println("File is null; "+ this.flightPath);
         } catch(JAXBException ex){
             System.out.println("JAXBException.");
+            ex.printStackTrace();
         }
     }
     
     public void setUserPath(String path){
         this.userPath = path;
-        try{
+         try{
             JAXBContext jc = JAXBContext.newInstance(Users.class);
             Unmarshaller u = jc.createUnmarshaller();
             
@@ -91,6 +92,7 @@ public class BookingApplication {
             System.out.println("File is null; "+ this.userPath);
         } catch(JAXBException ex){
             System.out.println("JAXBException.");
+            ex.printStackTrace();
         }
     }
     

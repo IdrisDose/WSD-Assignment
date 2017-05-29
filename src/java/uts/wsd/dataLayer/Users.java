@@ -17,6 +17,7 @@ import uts.wsd.businessLayer.User;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "users")
 public class Users implements Serializable{
+    
     @XmlElement(name = "user")
     private ArrayList<User> list = new ArrayList<User>();
     
@@ -40,11 +41,11 @@ public class Users implements Serializable{
         return null; // Login incorrect. Return null.
     }
     
-    public boolean userExists(String email, String password){
+    public boolean userExists(String email){
         //For each user in the list..
         for(User user: list){
             //Check if details exist
-            if (user.getEmail().equals(email) && user.getPassword().equals(password))
+            if (user.getEmail().equals(email))
                 return true; //Return true if details exist
         }
         return false; //Return false if details exist

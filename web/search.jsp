@@ -9,8 +9,8 @@
         <title>WSD Airline</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
-        <link rel="stylesheet" href="style.css"/> 
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="style.css" /> 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <style>
@@ -18,86 +18,62 @@
 
     </head>
     <body>
-
-    <!--menu bar-->
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-send"></span>WSD Airline</a>
-            </div>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="viewBooking.html"><span class="glyphicon glyphicon-search"></span>View booking</a></li>
-                <li><a href="index.html"><span class="glyphicon glyphicon-log-in"  ></span>Log out</a></li>
-            </ul>
-        </div>
-    </nav>
-
+    <jsp:include page="nav.jsp"/>
     <!--table -->
     <div class="container col-sm-8">
-        <div class="col-sm-6">
-        </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 col-sm-offset-6">
             <div class="panel-group">
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix"> 
                         <p class="panel-title pull-left">Book a trip</p>
                     </div>
 
-                    <div align="center" class="panel-body">
+                    <div class="panel-body">
                         <div  class="tab-content" id="Flight">
-
                             <form  class="form-horizontal" role="form">
                                 <div class="form-group">
                                     <label class="control-label col-sm-4" >Form:</label>
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-6">
                                         <input type="text" class="form-control" >
                                     </div>
-                                </div>
-
+                                </div>    
                                 <div class="form-group">
                                     <label class="control-label col-sm-4">To:</label>
-                                    <div class="col-sm-8">          
+                                    <div class="col-sm-6">          
                                         <input type="text" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-4">Departure Date:</label>
-                                    <div class="col-sm-8">          
+                                    <div class="col-sm-6">          
                                         <input type="text" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-4">Return Date:</label>
-                                    <div class="col-sm-8">          
+                                    <div class="col-sm-6">          
                                         <input type="text" class="form-control">
                                     </div>
                                 </div>
-
+                                
+                                <div class="form-group">
+                                    <div class="col-sm-7 col-sm-offset-5">
+                                        <label class="radio-inline"><input type="radio" name="eco" value="eco"> Economy</label>
+                                        <label class="radio-inline"><input type="radio" name="bus" value="bus"> Business</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="button">
+                                    <button type="submit" class="btn btn-default">Search</button>
+                                </div>
+                                
                             </form>
-                            <div class="button">
-                                <label class="demo--label" >
-                                    <input class="demo--radio" type="radio" name="demo-radio" checked>
-                                    <span class="demo--radioInput"></span>Economy
-                                </label>
-                                <label class="demo--label">
-                                    <input class="demo--radio label2" type="radio" name="demo-radio">
-                                    <span class="demo--radioInput"></span>Business
-                                </label>
                             </div>
-
-                            <div class="button">
-                                <button  type="submit" class="btn btn-default">Search</button>
-                            </div>
-                        </div>
-
-                    </div>
-
-
+                        </div>         
+                    </div>   
                 </div>
-
 
                 <!-- Footer -->
                 <footer class="footer">
@@ -106,12 +82,5 @@
             </div>
         </div>
     </div>
-
-
-
-
 </body>
-
-
-
 </html>

@@ -13,6 +13,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "booking")
 public class Booking implements Serializable{
     
+    @XmlElement(name = "id")
+    private int id;
+    
     @XmlElement(name = "passenger")
     private User passenger;
     
@@ -29,8 +32,7 @@ public class Booking implements Serializable{
     private String bookingStatus;
 
 
-
-    public Booking(User passenger, Flight flight, String fromCity, String toCity) {
+    public Booking(int id, User passenger, Flight flight, String fromCity, String toCity) {
         this.passenger = passenger;
         this.flight = flight;
         this.fromCity = fromCity;
@@ -38,6 +40,19 @@ public class Booking implements Serializable{
         this.bookingStatus = "Booked";
     }
 
+    public Booking(int id) {
+        this.id = id;
+    }
+    
+    public Booking(){}
+    
+    public int getId(){
+        return this.id;
+    }
+    
+    public void setId(int id){
+        this.id = id;
+    }
     public User getPassenger() {
         return passenger;
     }
@@ -78,5 +93,10 @@ public class Booking implements Serializable{
         this.bookingStatus = bookingStatus;
     }
 
+    @Override
+    public String toString() {
+        return "Booking{" + "passenger=" + passenger + ", flight=" + flight + ", fromCity=" + fromCity + ", toCity=" + toCity + ", bookingStatus=" + bookingStatus + '}';
+    }
 
+    
 }

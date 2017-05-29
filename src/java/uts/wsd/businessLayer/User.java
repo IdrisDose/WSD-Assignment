@@ -30,6 +30,8 @@ public class User implements Serializable{
     @XmlElement(name = "staff")
     private String staff;
     
+    public User(){}
+    
     public User(int id, String fullname, String email, String password, String dob, String staff) {
         this.id = id;
         this.fullname = fullname;
@@ -84,7 +86,7 @@ public class User implements Serializable{
     
     @Override
     public String toString() {
-        return this.fullname + "<"+this.email+">";
+        return fullname+"&lt;"+email+"&gt;";
     }
 
    

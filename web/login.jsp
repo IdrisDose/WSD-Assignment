@@ -18,19 +18,7 @@
 
     </head>
     <body>
-
-        <!--menu bar-->
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-send"></span>WSD Airline</a>
-            </div>    
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="register.jsp"><span class="glyphicon glyphicon-user"></span>Sign up</a></li>
-            </ul>
-        </div>
-    </nav>
-
+    <jsp:include page="nav.jsp"/>
     <!--table -->
     <div class="container col-sm-8">
         <div class="col-sm-6">
@@ -43,26 +31,28 @@
                     </div>
                     <div class="panel-body">
                         <div align="Left" class="tab-content" id="Flight">
-                            <form class="form-horizontal" role="form">
+                            <form class="form-horizontal" role="form" action="login_action.jsp" method="POST">
                                 <div class="form-group">
                                     <label class="control-label col-sm-5" for="email">Email:</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" id="email" placeholder="Enter email">
+                                        <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-5" for="pwd">Password:</label>
                                     <div class="col-sm-7">          
-                                        <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password">
                                     </div>
+                                </div>
+                                
+                                <div class="button">
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                    <a href class="btn btn-default" url="index.jsp">Back</a>
                                 </div>
                             </form>
 
-                            <div class="button">
-                                <button type="submit" class="btn btn-default" onclick="location.href = '#'">Login</button> 
-                                <button type="submit" class="btn btn-default" onclick="location.href = 'index.jsp'">Back</button>
-                            </div>
+                           
                         </div>                
                     </div>
 
