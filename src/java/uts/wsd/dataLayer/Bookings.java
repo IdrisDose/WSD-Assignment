@@ -27,6 +27,7 @@ public class Bookings implements Serializable {
     public void addFlight(Booking value) {
         list.add(value);
     }
+    
     public void removeFlight(Booking value) {
         list.remove(value);
     }

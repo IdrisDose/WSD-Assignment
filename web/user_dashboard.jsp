@@ -40,15 +40,14 @@
         <div class="col-sm-6">
         </div>
         <div class="col-sm-6">
-            <h2>Booking List</h2>
             <div class="panel-group">
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix"> 
-                        <p class="panel-title pull-left">Click one of Flight to check</p>	
+                        <p class="panel-title pull-left">Bookings List</p>	
                     </div>
 
                     <div class="panel-body">   
-                        <form id="bookings-list" method="cancel_mem_booking.jsp" action="POST">
+                        <form id="bookings-list" method="POST" action="cancel_booking.jsp">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -86,9 +85,9 @@
                         </form>
                     </div>
                 </div>               
-                <!-- Footer -->
+               <!-- Footer -->
                 <footer class="footer">
-                    <p>&copy; WSD.UTS 2017</p> 
+                    <p>&copy; WSD.UTS 2017 <br> Background image from <a href="http://indonesiaexpat.biz/wp-content/uploads/2016/01/Airplane-flying-desktop-picture.jpg">here</a>.</p> 
                 </footer>
             </div>
         </div>

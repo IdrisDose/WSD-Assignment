@@ -114,7 +114,7 @@
             
             <!-- Footer -->
             <footer class="footer">
-                <p>&copy; WSD.UTS 2017</p> 
+                <p>&copy; WSD.UTS 2017 <br> Background image from <a href="http://indonesiaexpat.biz/wp-content/uploads/2016/01/Airplane-flying-desktop-picture.jpg">here</a>.</p> 
             </footer>
         </div>
     </div>

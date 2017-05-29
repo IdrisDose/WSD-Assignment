@@ -29,10 +29,11 @@
         String email = request.getParameter("email");
         String pwd = request.getParameter("pwd");
     %>
-    <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
-        <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
-    </jsp:useBean>
+    
     <body>
+        <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
+            <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
+        </jsp:useBean>
         <jsp:include page="includes/nav.jsp"/>
         <div class="container">
             <h1>Login</h1> 

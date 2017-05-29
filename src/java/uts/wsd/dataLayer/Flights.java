@@ -17,7 +17,7 @@ import uts.wsd.businessLayer.Flight;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "flights")
 public class Flights implements Serializable{
-    
+    //Flights List
     @XmlElement(name = "flight")
     private ArrayList<Flight> list = new ArrayList<Flight>();
     
@@ -28,6 +28,7 @@ public class Flights implements Serializable{
     public void addFlight(Flight value) {
         list.add(value);
     }
+    
     public void removeFlight(Flight value) {
         list.remove(value);
     }
