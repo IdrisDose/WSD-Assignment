@@ -47,34 +47,31 @@ public class Flights implements Serializable{
     
     public ArrayList<Flight> getFlightsFromData(String fromcity, String tocity, String type){
         ArrayList<Flight> output = new ArrayList<>();
-        ArrayList<Flight> fromCityList = new ArrayList<>();
+        ArrayList<Flight> fromCityList = new ArrayList<>(); // From City list buffer
+        ArrayList<Flight> toCityList = new ArrayList<>(); // to city list buffer
         
-        //Unused for now
-        ArrayList<Flight> toCityList = new ArrayList<>();
-        
-        boolean isFromCityNil = fromcity.equals("nil");
-        boolean isToCityNil = tocity.equals("nil");
+        boolean isFromCityNil = fromcity.equals("nil"); // if fromcity variable == nil, then return true;
+        boolean isToCityNil = tocity.equals("nil"); // if tocity variable is nil, return tue;
         
         //Unused for now
         boolean isTypeNil = type.equals("nil");
         
         
         if(!isFromCityNil){
-            fromCityList = searchFromCity(fromcity, list);
-            
+            fromCityList = searchFromCity(fromcity.toLowerCase(), list);
         }
         
         if(!isToCityNil){
             if(fromCityList.isEmpty()){
-                toCityList = searchToCity(tocity, list);
+                toCityList = searchToCity(tocity.toLowerCase(), list);
             }else{
-                toCityList = searchToCity(tocity, fromCityList);
+                toCityList = searchToCity(tocity.toLowerCase(), fromCityList);
             }
         }
         
         if(!isFromCityNil){ // If fromcity (var) == "nil"
             if(!isToCityNil)
-                output = toCityList; // 
+                output = toCityList; 
             else
                 output = fromCityList;
         } else{
@@ -87,7 +84,7 @@ public class Flights implements Serializable{
     private ArrayList<Flight> searchFromCity(String fromcity, ArrayList<Flight> input){
         ArrayList<Flight> output = new ArrayList<>();
         for(Flight flight : input){
-            if(flight.getFromCity().equals(fromcity)){
+            if(flight.getFromCity().toLowerCase().equals(fromcity)){
                 output.add(flight);
             }
         }
@@ -97,7 +94,7 @@ public class Flights implements Serializable{
     private ArrayList<Flight> searchToCity(String tocity, ArrayList<Flight> input){
         ArrayList<Flight> output = new ArrayList<>();
         for(Flight flight : input){
-            if(flight.getToCity().equals(tocity)){
+            if(flight.getToCity().toLowerCase().equals(tocity)){
                 output.add(flight);
             }
         }
@@ -107,12 +104,36 @@ public class Flights implements Serializable{
     private ArrayList<Flight> searchType(String type, ArrayList<Flight> input){
         ArrayList<Flight> output  = new ArrayList<>();
         for(Flight flight : input){
-            if(flight.getFlightType().equals(type)){
+            if(flight.getFlightType().toLowerCase().equals(type)){
                 output.add(flight);
             }
         }
         return output;
     }
     
+    
+    public ArrayList<String> getFromCities(){
+        ArrayList<String> output = new ArrayList<>();
+        for(Flight flight:list){
+            String fromCity = flight.getFromCity();
+            
+            if(!(output.contains(fromCity))){
+                output.add(fromCity);
+            }
+        }
+        return output;
+    }
+    
+    public ArrayList<String> getToCities(){
+        ArrayList<String> output = new ArrayList<>();
+        for(Flight flight:list){
+            String toCity = flight.getToCity();
+            
+            if(!(output.contains(toCity))){
+                output.add(toCity);
+            }
+        }
+        return output;
+    }
     
 }

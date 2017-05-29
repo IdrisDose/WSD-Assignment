@@ -18,7 +18,18 @@
 
     </head>
     <body>
+    <% 
+        String flightPath = application.getRealPath("WEB-INF/flights.xml");
+    %>
+    <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
+        <jsp:setProperty name="bookApp" property="flightPath" value="<%=flightPath%>"/>
+    </jsp:useBean> 
     <jsp:include page="nav.jsp"/>
+    
+    <!-- Setup for Select Input Element -->
+    <% 
+        Flights flights = bookApp.getFlights();
+    %>
     <!--table -->
     <div class="container col-sm-8">
         <div class="col-sm-6 col-sm-offset-6">
@@ -34,13 +45,40 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-4" >From:</label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="fromcity" class="form-control" >
+                                        
+                                        <!--<input type="text" name="fromcity" class="form-control" >-->
+                                        
+                                        <select name="fromcity" class="form-control">
+                                            <option value="nil"></option>
+                                            <% 
+                                                for(String string:flights.getFromCities()){
+                                            %>
+                                            <option value="<%=string%>"><%=string%></option>
+                                            <%
+                                                }
+                                            %>
+                                        </select>
                                     </div>
-                                </div>    
+                                </div> 
                                 <div class="form-group">
                                     <label class="control-label col-sm-4">To:</label>
                                     <div class="col-sm-6">          
-                                        <input type="text" name="tocity" class="form-control">
+                                        <!--
+                                            Replaced by Select Element
+                                            <input type="text" name="tocity" class="form-control">
+                                        -->
+                                        
+                                        <select name="fromcity" class="form-control">
+                                            <option value="nil"></option>
+                                            <% 
+                                                for(String string:flights.getToCities()){
+                                            %>
+                                            <option value="<%=string%>"><%=string%></option>
+                                            <%
+                                                }
+                                            %>
+                                        </select>
+                                        
                                     </div>
                                 </div>
 
@@ -60,8 +98,8 @@
                                 
                                 <div class="form-group">
                                     <div class="col-sm-7 col-sm-offset-5">
-                                        <label class="radio-inline"><input type="radio" name="eco" value="economy"> Economy</label>
-                                        <label class="radio-inline"><input type="radio" name="bus" value="business"> Business</label>
+                                        <label class="radio-inline"><input type="radio" name="type" value="economy"> Economy</label>
+                                        <label class="radio-inline"><input type="radio" name="type" value="business"> Business</label>
                                     </div>
                                 </div>
                                 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uts.wsd.presentationLayer;
+package uts.wsd;
 
 import uts.wsd.dataLayer.Bookings;
 import uts.wsd.dataLayer.Flights;

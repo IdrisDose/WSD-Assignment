@@ -53,6 +53,7 @@ public class Flight implements Serializable{
         this.fromCity = fromCity;
         this.toCity = toCity;
         this.flightType = flightType;
+        this.setStatus();
     }
     
     public Flight(){ }
@@ -105,10 +106,13 @@ public class Flight implements Serializable{
         this.flightType = flightType;
     }
 
-    private String getStatus(){
+    public String getStatus(){
         return this.status;
     }
-
+    
+    //Check if number of seats available greater or equal to one
+    // If yes to condition, set status to available
+    // If no to condition, set status to unavailable
     private void setStatus(){
         if(this.numSeats >= 1)
             this.status = "available";
@@ -117,6 +121,7 @@ public class Flight implements Serializable{
 
     }
 
+    //Unused
     private void updateFlight(){
         this.setStatus();
 

@@ -7,6 +7,7 @@
 <%@page import="uts.wsd.dataLayer.*"%>
 <%@page import="uts.wsd.businessLayer.*"%>
 <%@page import="uts.wsd.*"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -28,7 +29,7 @@
         String email = request.getParameter("email");
         String pwd = request.getParameter("pwd");
     %>
-    <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
+    <jsp:useBean id="bookApp" class="uts.wsd.BookingApplicationBookingApplication" scope="application">
         <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
     </jsp:useBean>
     <body>

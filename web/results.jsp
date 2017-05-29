@@ -30,35 +30,23 @@
         String submitted = request.getParameter("submitted");
         String fromcity = request.getParameter("fromcity");
         String tocity = request.getParameter("tocity");
-        String eco = request.getParameter("eco");
-        String business = request.getParameter("bus");
-        String type = "nil";
+        String type = request.getParameter("type");;
         
         //Check if From City is not null, if it is, then assign it a value for searching;
-        if(fromcity==null)
+        if(fromcity==null||fromcity.isEmpty())
             fromcity = "nil";
         
         //Check if To City is not null, if it is, then assign it a nil value for searching;
-        if(tocity==null)
+        if(tocity==null||tocity.isEmpty())
             tocity = "nil";
         
-        //Assign a value to type
-        if(eco == null && business != null){
-            //If Eco is empty but business value is not, assign said value to type variable.
-            type = business;
-        } else if(business==null && eco !=null){
-            //If business is empty but eco is not, assign the value of eco to type variable.
-            type = eco;
-        } else {
-            //In the even of both null, assign type nil;
+        if(type==null||type.isEmpty())
             type = "nil";
-        }
-        
     %>
     
     <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
         <jsp:setProperty name="bookApp" property="flightPath" value="<%=flightPath%>"/>
-    </jsp:useBean>  
+    </jsp:useBean> 
     
     <jsp:include page="nav.jsp"/>
     
@@ -67,6 +55,11 @@
         <table>
         <% if(submitted==null||submitted!="yes"){ 
             ArrayList<Flight> flights = bookApp.getFlights().getFlightsFromData(fromcity,tocity,type);
+            if(flightPath.isEmpty()){
+        %>
+            
+        <%
+            }else {
         %>
             
             <thead>
@@ -77,9 +70,24 @@
                 <th>Status</th>
             </thead>
             <tbody>
-            
+                <%
+                    for(Flight flight : flights){
+                    
+                %>
+                <tr>
+                    <td><%=flight.getId()%></td>
+                    <td><%=flight.getFromCity()%></td>
+                    <td><%=flight.getToCity()%></td>
+                    <td><%=flight.getNumSeats()%></td>
+                    <td><%=flight.getStatus()%></td>
+                </tr>
+                <%
+                    } //End of For Each loop
+                %>
             </tbody>
-        <% } %>
+        <%      }//End if Empty List Check
+            } // End of Submit Check
+        %>
         </table>
         <!-- Footer -->
         <footer class="footer">

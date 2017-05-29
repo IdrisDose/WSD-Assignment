@@ -37,11 +37,11 @@
         <status>available</status>
     </flight>
     <flight>
-        <id>MS5638</id>
+        <id>SM5638</id>
         <price>100.00</price>
         <seats>117</seats>
-        <fromcity>Melbourne</fromcity>
-        <tocity>Sydney</tocity>
+        <fromcity>Sydney</fromcity>
+        <tocity>Melbourne</tocity>
         <type>economy</type>
         <status>available</status>
     </flight>
