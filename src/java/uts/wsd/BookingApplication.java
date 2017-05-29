@@ -5,18 +5,11 @@
  */
 package uts.wsd;
 
-import uts.wsd.dataLayer.Bookings;
-import uts.wsd.dataLayer.Flights;
-import uts.wsd.dataLayer.Users;
 import uts.wsd.dataLayer.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.*;
 
 /**
  *
@@ -77,7 +70,10 @@ public class BookingApplication {
     
     public void setUserPath(String path){
         this.userPath = path;
-         try{
+        this.populateUsers();
+    }
+    private void populateUsers(){
+        try{
             JAXBContext jc = JAXBContext.newInstance(Users.class);
             Unmarshaller u = jc.createUnmarshaller();
             
@@ -85,7 +81,8 @@ public class BookingApplication {
                 System.out.println("File path is null");
             
             FileInputStream input = new FileInputStream(this.userPath);
-            users = (Users)u.unmarshal(input);
+            
+            this.users = (Users)u.unmarshal(input);
             input.close();
             
         }catch(IOException e){
@@ -97,6 +94,7 @@ public class BookingApplication {
     }
     
     public void updateUsersXML(Users users, String filePath) throws Exception {
+        
         //Assign this.users to the variable passed in the signature.
         this.users= users;
         

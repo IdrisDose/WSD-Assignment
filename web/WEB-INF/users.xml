@@ -5,7 +5,15 @@
         <name>Idris Test</name>
         <email>admin@test.com</email>
         <password>123</password>
-        <dob>09/01/1996</dob>
+        <dob>09011996</dob>
         <staff>true</staff>
+    </user>
+    <user>
+        <id>2</id>
+        <name>Broken User</name>
+        <email>test@test.com</email>
+        <password>321</password>
+        <dob>01021995</dob>
+        <staff>false</staff>
     </user>
 </users>

@@ -29,32 +29,31 @@
         String email = request.getParameter("email");
         String pwd = request.getParameter("pwd");
     %>
-    <jsp:useBean id="bookApp" class="uts.wsd.BookingApplicationBookingApplication" scope="application">
+    <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
         <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
     </jsp:useBean>
     <body>
         <jsp:include page="includes/nav.jsp"/>
         <div class="container">
             <h1>Login</h1>
-            <%
+            
+           <%               
                 Users users = bookApp.getUsers();
+                System.out.println("users = null? " + bookApp.getUsers()==null);
+                
                 User user = users.login(email,pwd);
+                
                 if(user!=null){ 
-                session.setAttribute("user",user);
+                    session.setAttribute("user",user);
             %>
                 <p>You have already registered, please wait.</p>
                 <p>If you have not been redirected, please <a href="index.jsp">click here</a>.</p>
                 
-                <script>
-                    setTimeout(function() {
-                        document.location = "login.jsp";
-                    }, 3000); // <-- this is the delay in milliseconds
-                </script>
+                
             <% } else { %>
                 <p>I'm sorry, No user matching those credentials exist, please either try logging in again or registering.</p>
                 <p><a class="btn btn-default" href="login.jsp">Login</a> <a class="btn btn-default"href="register.jsp">Register</a></p>
             <% }%>
-        
         </div>
     </body>
 </html>

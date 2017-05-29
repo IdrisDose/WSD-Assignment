@@ -20,8 +20,6 @@
         <link rel="stylesheet" href="style.css" /> 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <style>
-        </style>
 
     </head>
     <body>
@@ -44,7 +42,7 @@
             type = "nil";
     %>
     
-    <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
+    <jsp:useBean id="bookApp" class="BookingApplication" scope="application">
         <jsp:setProperty name="bookApp" property="flightPath" value="<%=flightPath%>"/>
     </jsp:useBean> 
     
@@ -53,7 +51,7 @@
     <!--table -->
     <div class="container col-sm-8">
         <div class="col-sm-6 col-sm-offset-6">
-            <table>
+            
             <% if(submitted==null||submitted!="yes"){ 
                 ArrayList<Flight> flights = bookApp.getFlights().getFlightsFromData(fromcity,tocity,type);
                 if(flights.isEmpty()){
@@ -64,45 +62,56 @@
                      <a href="index.jsp" class="btn btn-default">Back</a>
                 </div>
             </div>
-            <div class="row">
-                <p class="col-sm-6 col-sm-offset-4">
-                    Entered Data: <br>
-                    From City: <%=fromcity%>&nbsp;<br>
-                    To City: <%=tocity%>&nbsp;<br>
-                    Type: <%=type%>
-                </p>
-            </div>
             <%
                 }else {
             %>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading clearfix"> 
+                        <p class="panel-title pull-left">Search Results</p>	
+                    </div>
 
-                <thead>
-                    <th>Flight No.</th>
-                    <th>From City</th>
-                    <th>To City</th>
-                    <th>Seats Available</th>
-                    <th>Status</th>
-                </thead>
-                <tbody>
-                    <%
-                        for(Flight flight : flights){
+                    <div class="panel-body">
+                        <form  class="form-horizontal" role="form" method="POST" action="confirm_booking.jsp">
+                            <table class="table table-hover">
+                                <thead class="center-text">
+                                    <th>Flight No.</th>
+                                    <th>From City</th>
+                                    <th>To City</th>
+                                    <th>Seats</th>
+                                    <th>Status</th>
+                                    <th>Price</th>
+                                </thead>
+                                <tbody>
+                                    <%
+                                        for(Flight flight : flights){
 
-                    %>
-                    <tr>
-                        <td><%=flight.getId()%></td>
-                        <td><%=flight.getFromCity()%></td>
-                        <td><%=flight.getToCity()%></td>
-                        <td><%=flight.getNumSeats()%></td>
-                        <td><%=flight.getStatus()%></td>
-                    </tr>
-                    <%
-                        } //End of For Each loop
-                    %>
-                </tbody>
+                                    %>
+                                    <tr>
+                                        <td><input type="radio" name="flightid" value="<%=flight.getId()%>"/> <%=flight.getId()%></td>
+                                        <td><%=flight.getFromCity()%></td>
+                                        <td><%=flight.getToCity()%></td>
+                                        <td><%=flight.getNumSeats()%></td>
+                                        <td><%=flight.getStatus()%></td>
+                                        <td>$<%=flight.getPrice()%>0</td>
+                                    </tr>
+                                    <%
+                                        } //End of For Each loop
+                                    %>
+                                </tbody>
+                            </table>
+                            <div class="button">
+                                <button type="submit" class="btn btn-default">Submit</button>
+                                <a href class="btn btn-default" url="index.jsp">Back</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <%      }//End if Empty List Check
                 } // End of Submit Check
             %>
-            </table>
+            
             <!-- Footer -->
             <footer class="footer">
                 <p>&copy; WSD.UTS 2017</p> 

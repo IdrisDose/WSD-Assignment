@@ -3,13 +3,11 @@
     Created on : 29/05/2017, 12:42:08 PM
     Author     : nzdos_000
 --%>
-<%@page import="uts.wsd.dataLayer.*"%>
 <%@page import="uts.wsd.businessLayer.*"%>
-<%@page import="uts.wsd.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <% 
-        User user = (User) session.getAttribute("user");  
+        User user = (User) session.getAttribute("user");
 %>
     <!--menu bar-->
     <nav class="navbar navbar-inverse">
@@ -20,10 +18,12 @@
             <ul class="nav navbar-nav">
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="search.jsp">Search</a></li>
-                <% 
-                    if(user!=null){
-                %>
+                <% if(user!=null){ %>
                     <li><a href="user_dashboard.jsp">View Bookings</a></li>
+                    
+                     <% if(user.isStaff().equals("true")){ %>
+                        <li><a href="admin_dashboard.jsp">Admin Dashboard</a></li> 
+                    <% } //End of staff check%>                   
                 <% } %>
             </ul>
             <ul class="nav navbar-nav navbar-right">

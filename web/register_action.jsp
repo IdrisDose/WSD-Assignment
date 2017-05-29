@@ -54,11 +54,6 @@
                 <p>You have been registered, please wait 5 seconds to be sent to Login page.</p>
                 <p>If you have not been redirected, please <a href="login.jsp">click here</a>.</p>
            <% } %>
-        <script>
-        setTimeout(function() {
-          document.location = "login.jsp";
-        }, 3000); // <-- this is the delay in milliseconds
-        </script>
         </div>
     </body>
 </html>

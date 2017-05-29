@@ -30,6 +30,7 @@
     <!-- Setup for Select Input Element -->
     <% 
         Flights flights = bookApp.getFlights();
+       
     %>
     <!--table -->
     <div class="container col-sm-8">
@@ -99,7 +100,7 @@
                                 
                                 <div class="form-group">
                                     <div class="col-sm-7 col-sm-offset-5">
-                                        <label class="radio-inline"><input type="radio" name="type" value="economy"> Economy</label>
+                                        <label class="radio-inline"><input type="radio" name="type" value="economy" checked> Economy</label>
                                         <label class="radio-inline"><input type="radio" name="type" value="business"> Business</label>
                                     </div>
                                 </div>

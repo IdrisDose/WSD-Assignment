@@ -79,7 +79,8 @@ public class User implements Serializable{
     }  
     public void setStaff(String value){
         this.staff = value;
-    }   
+    }
+    
     public String isStaff(){
         return this.staff;
     }

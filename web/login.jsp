@@ -32,31 +32,33 @@
                     <div class="panel-body">
                         <div align="Left" class="tab-content" id="Flight">
                             <form class="form-horizontal" role="form" action="login_action.jsp" method="POST">
-                                <div class="form-group">
-                                    <label class="control-label col-sm-5" for="email">Email:</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4" for="email">Email:</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <label class="control-label col-sm-5" for="pwd">Password:</label>
-                                    <div class="col-sm-7">          
-                                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4" for="pwd">Password:</label>
+                                        <div class="col-sm-6">          
+                                            <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password">
+                                        </div>
+                                    </div>
+
+                                    <div class="button">
+                                        <button type="submit" class="btn btn-default">Submit</button>
+                                        <a href class="btn btn-default" url="index.jsp">Back</a>
                                     </div>
                                 </div>
-                                
-                                <div class="button">
-                                    <button type="submit" class="btn btn-default">Submit</button>
-                                    <a href class="btn btn-default" url="index.jsp">Back</a>
+                                <div class="row">
+                                    <p class="center-text">If you don't already have an account, <a href="register.jsp">click here</a> to register.</p>
                                 </div>
                             </form>
 
-                           
-                        </div>                
-                    </div>
-
-
+                        </div>    
+                    </div>  
                 </div>
                 <!-- Footer -->
                 <footer class="footer">

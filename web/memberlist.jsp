@@ -18,8 +18,14 @@
 
     </head>
     <body>
-
-        <jsp:include page="includes/nav.jsp"/>
+       <% 
+        String userPath = application.getRealPath("WEB-INF/users.xml");
+       %>
+    <jsp:useBean id="bookApp" class="BookingApplication" scope="application">
+        <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
+    </jsp:useBean> 
+    
+    <jsp:include page="includes/nav.jsp"/>
 
     <!--table -->
     <div class="container col-sm-8">
@@ -39,26 +45,25 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>First name</th>
-                                    <th>Last name</th>
-                                    <th>Delete</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Edit</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                <tr onclick="document.location = '#';">
-                                    <td>00000001</td>
-                                    <td>Steven</td>
-                                    <td>Job</td>
-                                    <td><button type="submit" class="btn btn-default" onclick="location.href = 'DeleteConfirm.html'">Remove</button></td>		         
-                                </tr>
-
-                                <tr onclick="document.location = '#';">
-                                    <td>00000002</td>
-                                    <td>Mary</td>
-                                    <td>Linda</td>
-                                    <td><button type="submit" class="btn btn-default" onclick="location.href = 'DeleteConfirm.html'">Remove</button></td>	
-                                </tr>
+                                <%
+                                    for(User user : bookApp.getUsers().getList()){ 
+                                %>
+                                    <tr>
+                                        <td><input type="radio" name="userid" value="<%=user.getId()%>"/> <%=user.getId()%></td>
+                                        <td><%=user.getFullname()%></td>
+                                        <td><%=user.getEmail()%></td>
+                                        
+                                    </tr>
+                                <%
+                                    }//End of Foreach User
+                                %>
                             </tbody>
                         </table>
 
