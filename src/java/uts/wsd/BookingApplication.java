@@ -9,7 +9,10 @@ import uts.wsd.dataLayer.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import javax.xml.bind.*;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 
 /**
  *
@@ -37,9 +40,12 @@ public class BookingApplication {
             if(this.flightPath==null || this.flightPath.isEmpty()){
                 System.out.println("File path is null.");
             }
+            if(path ==null || path.isEmpty()){
+                System.out.println("Path is null");
+            }
             // Now unmarshal the object from the file
-            FileInputStream fin = new FileInputStream( this.flightPath);
-            flights= (Flights)u.unmarshal(fin);
+            FileInputStream fin = new FileInputStream(this.flightPath);
+            flights = (Flights) u.unmarshal(fin);
             fin.close();
             
         } catch(IOException e){
@@ -57,7 +63,7 @@ public class BookingApplication {
                 System.out.println("File path is null");
             
             FileInputStream input = new FileInputStream(this.bookingPath);
-            bookings=(Bookings)u.unmarshal(input);
+            bookings = (Bookings) u.unmarshal(input);
             input.close();
             
         } catch(IOException e){
@@ -70,9 +76,6 @@ public class BookingApplication {
     
     public void setUserPath(String path){
         this.userPath = path;
-        this.populateUsers();
-    }
-    private void populateUsers(){
         try{
             JAXBContext jc = JAXBContext.newInstance(Users.class);
             Unmarshaller u = jc.createUnmarshaller();
@@ -80,9 +83,8 @@ public class BookingApplication {
             if(this.userPath==null || this.userPath.isEmpty())
                 System.out.println("File path is null");
             
-            FileInputStream input = new FileInputStream(this.userPath);
-            
-            this.users = (Users)u.unmarshal(input);
+            FileInputStream input = new FileInputStream(this.userPath);            
+            this.users = (Users) u.unmarshal(input);
             input.close();
             
         }catch(IOException e){
@@ -93,8 +95,7 @@ public class BookingApplication {
         }
     }
     
-    public void updateUsersXML(Users users, String filePath) throws Exception {
-        
+    public void updateUsersXML(Users users, String filePath) throws Exception {        
         //Assign this.users to the variable passed in the signature.
         this.users= users;
         

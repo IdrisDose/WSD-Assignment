@@ -40,10 +40,7 @@ public class User implements Serializable{
         this.dob = dob;
         this.staff = staff;
     }
-
-    public User(int id) {
-        this.id = id;
-    }
+    
     public User(String email) {
         this.email = email;
     }

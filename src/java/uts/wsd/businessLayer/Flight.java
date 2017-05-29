@@ -32,11 +32,6 @@ public class Flight implements Serializable{
     @XmlElement(name = "status")
     private String status;
 
-
-    public Flight(String id) {
-        this.id = id;
-    }
-
     /**
      * Flight Constructor
      * @param id

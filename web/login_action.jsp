@@ -35,12 +35,9 @@
     <body>
         <jsp:include page="includes/nav.jsp"/>
         <div class="container">
-            <h1>Login</h1>
-            
-           <%               
+            <h1>Login</h1> 
+            <%               
                 Users users = bookApp.getUsers();
-                System.out.println("users = null? " + bookApp.getUsers()==null);
-                
                 User user = users.login(email,pwd);
                 
                 if(user!=null){ 

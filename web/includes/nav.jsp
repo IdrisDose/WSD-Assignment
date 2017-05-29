@@ -7,7 +7,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <% 
-        User user = (User) session.getAttribute("user");
+    User user = null;
+    if(session != null){ 
+        user = (User) session.getAttribute("user");
+    }
 %>
     <!--menu bar-->
     <nav class="navbar navbar-inverse">
@@ -20,10 +23,9 @@
                 <li><a href="search.jsp">Search</a></li>
                 <% if(user!=null){ %>
                     <li><a href="user_dashboard.jsp">View Bookings</a></li>
-                    
-                     <% if(user.isStaff().equals("true")){ %>
-                        <li><a href="admin_dashboard.jsp">Admin Dashboard</a></li> 
-                    <% } //End of staff check%>                   
+                    <% if(user!=null || user.isStaff().equals("yes")){ %>
+                        <li><a href="admin_dashboard.jsp">Admin Dashboard</a></li>
+                    <% } %>             
                 <% } %>
             </ul>
             <ul class="nav navbar-nav navbar-right">

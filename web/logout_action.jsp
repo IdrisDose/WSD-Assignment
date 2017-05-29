@@ -23,7 +23,8 @@
 
                     <div class="panel-body">
                         <div  class="tab-content">
-                            <p>Loggin Out</p>
+                            <p><a href="index.jsp">Click here</a> to return home.</p>
+                            
                         </div>
                     </div>         
                 </div>   
@@ -35,10 +36,5 @@
             </footer>
         </div>
     </div>
-    <script>
-        setTimeout(function() {
-            document.location = "index.jsp";
-        }, 3000); // <-- this is the delay in milliseconds
-    </script>
     </body>
 </html>

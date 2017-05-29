@@ -39,10 +39,6 @@ public class Booking implements Serializable{
         this.toCity = toCity;
         this.bookingStatus = "Booked";
     }
-
-    public Booking(int id) {
-        this.id = id;
-    }
     
     public Booking(){}
     

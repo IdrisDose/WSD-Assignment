@@ -47,7 +47,7 @@
                 <p>If you have not been redirected, please <a href="login.jsp">click here</a>.</p>
             <% } else {
                 int id = users.getList().size()+1;
-                User user = new User(id,name,email,pwd,dob,"false");
+                User user = new User(id,name,email,pwd,dob,"no");
                 users.getList().add(user);
 
                 bookApp.updateUsersXML(users, userPath);%>
