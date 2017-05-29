@@ -3,19 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/web/edit_flight.jsp</file>
-            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/web/admin_dashboard.jsp</file>
-            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/web/edit_user.jsp</file>
-            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/web/register.jsp</file>
-            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/web/WEB-INF/bookings.xml</file>
+            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/src/java/uts/wsd/soap/BookingService.java</file>
+            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/src/java/uts/wsd/soap/client/BookingServiceClient.java</file>
+            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/web/login_action.jsp</file>
+            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/web/login.jsp</file>
+            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/web/index.jsp</file>
+            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/src/java/uts/wsd/dataLayer/Flights.java</file>
             <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/src/java/uts/wsd/dataLayer/Users.java</file>
-            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/web/user_dashboard.jsp</file>
-            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/src/java/uts/wsd/businessLayer/Booking.java</file>
-            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/web/WEB-INF/users.xml</file>
-            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/src/java/uts/wsd/dataLayer/Bookings.java</file>
-            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/src/java/uts/wsd/BookingApplication.java</file>
-            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/src/java/uts/wsd/businessLayer/User.java</file>
-            <file>file:/C:/Users/nzdos_000/Documents/GitHub/WSD-Assignment/web/edit_booking.jsp</file>
         </group>
     </open-files>
 </project-private>

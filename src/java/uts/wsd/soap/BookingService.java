@@ -6,6 +6,7 @@
 package uts.wsd.soap;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Resource;
@@ -17,7 +18,9 @@ import javax.xml.bind.JAXBException;
 import javax.xml.ws.WebServiceContext;
 import javax.xml.ws.handler.MessageContext;
 import uts.wsd.BookingApplication;
+import uts.wsd.businessLayer.Flight;
 import uts.wsd.businessLayer.User;
+import uts.wsd.dataLayer.Flights;
 import uts.wsd.dataLayer.Users;
 
 /**
@@ -56,5 +59,21 @@ public class BookingService {
             Logger.getLogger(BookingService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    @WebMethod
+    public Flights findFlight(String fromCity, String toCity){
+        Flights flights = new Flights();
+        try{
+            ArrayList<Flight> tmpFlights = this.getBookingApp().getFlights().getFlightsFromData(fromCity, toCity, "nil");
+            for(Flight flight : tmpFlights){
+                flights.addFlight(flight);
+            }
+        } catch (JAXBException ex) {
+            Logger.getLogger(BookingService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(BookingService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flights;
     }
 }

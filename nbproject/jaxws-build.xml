@@ -75,5 +75,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/uts/wsd/soap/client"/>
         <delete dir="${build.generated.dir}/jax-wsCache/BookingService_1"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-BookingService, wsimport-client-BookingService_1"/>
+    <target name="wsimport-client-BookingService_2" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/BookingService_2"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/BookingService_2" destdir="${build.generated.dir}/jax-wsCache/BookingService_2" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/BookingService_2/wsdl/localhost_8080/WSD-Assignment/BookingService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSD-Assignment/BookingService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/BookingService_2/wsdl/localhost_8080/WSD-Assignment/BookingService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/BookingService_2"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/BookingService_2">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-BookingService_2" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/uts/wsd/soap"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/BookingService_2"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-BookingService, wsimport-client-BookingService_1, wsimport-client-BookingService_2"/>
 </project>

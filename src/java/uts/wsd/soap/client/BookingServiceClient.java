@@ -5,6 +5,11 @@
  */
 package uts.wsd.soap.client;
 
+import uts.wsd.businessLayer.Flight;
+import uts.wsd.soap.BookingService;
+import uts.wsd.soap.BookingService_Service;
+import uts.wsd.businessLayer.User;
+
 /**
  *
  * @author nzdos_000
@@ -15,5 +20,12 @@ public class BookingServiceClient {
         BookingService bookServ = locator.getBookingServicePort();
         User user = bookServ.login("admin@test.com", "123");
         System.out.println(user.getName());
+        String fromCity = "sydney";
+        String toCity = "melbourne";
+        printFlights(bookServ, fromCity,toCity);
+    }
+
+    private static void printFlights(BookingService bookServ, String fromCity, String toCity) {
+        
     }
 }
