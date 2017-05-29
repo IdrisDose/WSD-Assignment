@@ -56,16 +56,21 @@ public class Flights implements Serializable{
         //Unused for now
         boolean isTypeNil = type.equals("nil");
         
+        //Push the two variables to lowercase for easier searching
+        fromcity = fromcity.toLowerCase();
+        tocity = tocity.toLowerCase();
         
+        //if from city is not nil, populate the fromCityList
         if(!isFromCityNil){
-            fromCityList = searchFromCity(fromcity.toLowerCase(), list);
+            fromCityList = searchFromCity(fromcity, list);
         }
-        
+    
+        //If
         if(!isToCityNil){
-            if(fromCityList.isEmpty()){
-                toCityList = searchToCity(tocity.toLowerCase(), list);
-            }else{
-                toCityList = searchToCity(tocity.toLowerCase(), fromCityList);
+            if(!isFromCityNil){
+                toCityList = searchToCity(tocity, fromCityList);
+            } else {
+                toCityList = searchToCity(tocity, list);
             }
         }
         
@@ -92,7 +97,9 @@ public class Flights implements Serializable{
     }
     
     private ArrayList<Flight> searchToCity(String tocity, ArrayList<Flight> input){
+        
         ArrayList<Flight> output = new ArrayList<>();
+        
         for(Flight flight : input){
             if(flight.getToCity().toLowerCase().equals(tocity)){
                 output.add(flight);

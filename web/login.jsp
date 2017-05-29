@@ -18,7 +18,7 @@
 
     </head>
     <body>
-    <jsp:include page="nav.jsp"/>
+    <jsp:include page="includes/nav.jsp"/>
     <!--table -->
     <div class="container col-sm-8">
         <div class="col-sm-6">

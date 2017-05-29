@@ -24,7 +24,8 @@
     <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
         <jsp:setProperty name="bookApp" property="flightPath" value="<%=flightPath%>"/>
     </jsp:useBean> 
-    <jsp:include page="nav.jsp"/>
+    
+    <jsp:include page="includes/nav.jsp"/>
     
     <!-- Setup for Select Input Element -->
     <% 
@@ -68,7 +69,7 @@
                                             <input type="text" name="tocity" class="form-control">
                                         -->
                                         
-                                        <select name="fromcity" class="form-control">
+                                        <select name="tocity" class="form-control">
                                             <option value="nil"></option>
                                             <% 
                                                 for(String string:flights.getToCities()){

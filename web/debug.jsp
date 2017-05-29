@@ -34,7 +34,7 @@
             <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
             <jsp:setProperty name="bookApp" property="bookingPath" value="<%=bookingPath%>"/>
         </jsp:useBean>
-        <jsp:include page="nav.jsp"/>
+        <jsp:include page="includes/nav.jsp"/>
         <div class="container">
             <h1>DEBUG DUMP</h1>
 

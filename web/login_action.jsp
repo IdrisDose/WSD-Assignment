@@ -33,17 +33,7 @@
         <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
     </jsp:useBean>
     <body>
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-send"></span>WSD Airline</a>
-                </div>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="register.jsp"><span class="glyphicon glyphicon-user"></span>Sign up </a></li>
-                    <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"  ></span>Login</a></li>
-                </ul>
-            </div>
-        </nav>
+        <jsp:include page="includes/nav.jsp"/>
         <div class="container">
             <h1>Login</h1>
             <%

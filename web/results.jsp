@@ -48,51 +48,66 @@
         <jsp:setProperty name="bookApp" property="flightPath" value="<%=flightPath%>"/>
     </jsp:useBean> 
     
-    <jsp:include page="nav.jsp"/>
+    <jsp:include page="includes/nav.jsp"/>
     
     <!--table -->
-    <div class="container">
-        <table>
-        <% if(submitted==null||submitted!="yes"){ 
-            ArrayList<Flight> flights = bookApp.getFlights().getFlightsFromData(fromcity,tocity,type);
-            if(flightPath.isEmpty()){
-        %>
-            
-        <%
-            }else {
-        %>
-            
-            <thead>
-                <th>Flight No.</th>
-                <th>From City</th>
-                <th>To City</th>
-                <th>Seats Available</th>
-                <th>Status</th>
-            </thead>
-            <tbody>
-                <%
-                    for(Flight flight : flights){
-                    
-                %>
-                <tr>
-                    <td><%=flight.getId()%></td>
-                    <td><%=flight.getFromCity()%></td>
-                    <td><%=flight.getToCity()%></td>
-                    <td><%=flight.getNumSeats()%></td>
-                    <td><%=flight.getStatus()%></td>
-                </tr>
-                <%
-                    } //End of For Each loop
-                %>
-            </tbody>
-        <%      }//End if Empty List Check
-            } // End of Submit Check
-        %>
-        </table>
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; WSD.UTS 2017</p> 
-        </footer>
+    <div class="container col-sm-8">
+        <div class="col-sm-6 col-sm-offset-6">
+            <table>
+            <% if(submitted==null||submitted!="yes"){ 
+                ArrayList<Flight> flights = bookApp.getFlights().getFlightsFromData(fromcity,tocity,type);
+                if(flights.isEmpty()){
+            %>
+            <div class="row">
+                <p class="col-sm-6 col-sm-offset-2">Sorry there are no available flights</p>
+                <div class="col-sm-8 col-sm-offset-2">
+                     <a href="index.jsp" class="btn btn-default">Back</a>
+                </div>
+            </div>
+            <div class="row">
+                <p class="col-sm-6 col-sm-offset-4">
+                    Entered Data: <br>
+                    From City: <%=fromcity%>&nbsp;<br>
+                    To City: <%=tocity%>&nbsp;<br>
+                    Type: <%=type%>
+                </p>
+            </div>
+            <%
+                }else {
+            %>
+
+                <thead>
+                    <th>Flight No.</th>
+                    <th>From City</th>
+                    <th>To City</th>
+                    <th>Seats Available</th>
+                    <th>Status</th>
+                </thead>
+                <tbody>
+                    <%
+                        for(Flight flight : flights){
+
+                    %>
+                    <tr>
+                        <td><%=flight.getId()%></td>
+                        <td><%=flight.getFromCity()%></td>
+                        <td><%=flight.getToCity()%></td>
+                        <td><%=flight.getNumSeats()%></td>
+                        <td><%=flight.getStatus()%></td>
+                    </tr>
+                    <%
+                        } //End of For Each loop
+                    %>
+                </tbody>
+            <%      }//End if Empty List Check
+                } // End of Submit Check
+            %>
+            </table>
+            <!-- Footer -->
+            <footer class="footer">
+                <p>&copy; WSD.UTS 2017</p> 
+            </footer>
+        </div>
     </div>
 </body>
 </html>

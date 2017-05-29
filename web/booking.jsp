@@ -18,18 +18,7 @@
 
     </head>
     <body>
-        <!--menu bar-->
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-send"></span>   WSD Airline</a>
-            </div>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.html"><span class="glyphicon glyphicon-user"></span>  Log in </a></li>
-            </ul>
-        </div>
-    </nav>
+    <jsp:include page="includes/nav.jsp"/>
 
     <!--table -->
     <div class="container col-sm-8">
