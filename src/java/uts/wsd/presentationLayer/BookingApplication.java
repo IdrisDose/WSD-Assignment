@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uts.wsd;
+package uts.wsd.presentationLayer;
 
 import uts.wsd.dataLayer.Bookings;
 import uts.wsd.dataLayer.Flights;
@@ -166,6 +166,5 @@ public class BookingApplication {
     public void setBookings(Bookings bookings) {
         this.bookings = bookings;
     }
-    
     
 }

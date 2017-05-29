@@ -30,59 +30,56 @@
 
                     <div class="panel-body">
                         <div  class="tab-content" id="Flight">
-                            <form  class="form-horizontal" role="form">
+                            <form  class="form-horizontal" role="form" method="POST" action="results.jsp">
                                 <div class="form-group">
-                                    <label class="control-label col-sm-4" >Form:</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" >
+                                    <label class="control-label col-sm-4" >From:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="fromcity" class="form-control" >
                                     </div>
                                 </div>    
                                 <div class="form-group">
                                     <label class="control-label col-sm-4">To:</label>
-                                    <div class="col-sm-8">          
-                                        <input type="text" class="form-control">
+                                    <div class="col-sm-6">          
+                                        <input type="text" name="tocity" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-4">Departure Date:</label>
-                                    <div class="col-sm-8">          
-                                        <input type="text" class="form-control">
+                                    <div class="col-sm-6">          
+                                        <input type="text" name="depdate" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-4">Return Date:</label>
-                                    <div class="col-sm-8">          
-                                        <input type="text" class="form-control">
+                                    <div class="col-sm-6">          
+                                        <input type="text" name="retdate" class="form-control">
                                     </div>
-                                </div>            
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="col-sm-7 col-sm-offset-5">
+                                        <label class="radio-inline"><input type="radio" name="eco" value="economy"> Economy</label>
+                                        <label class="radio-inline"><input type="radio" name="bus" value="business"> Business</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="button">
+                                    <button type="submit" class="btn btn-default">Search</button>
+                                    <input type="hidden" name="submitted" value="yes"/>
+                                </div>
+                                
                             </form>
-
-                            <div class="button">
-                                <label class="demo--label" >
-                                    <input class="demo--radio" type="radio" name="demo-radio" checked>
-                                    <span class="demo--radioInput"></span>Economy
-                                </label>
-
-                                <label class="demo--label label2">
-                                    <input class="demo--radio" type="radio" name="demo-radio">
-                                    <span class="demo--radioInput"></span>Business
-                                </label>
-                            </div>
-
-                            <div class="button">
-                                <button type="submit" class="btn btn-default">Search</button>
-                            </div>
-                        </div>         
-                    </div>   
-                </div>
-
-                <!-- Footer -->
-                <footer class="footer">
-                    <p>&copy; WSD.UTS 2017</p> 
-                </footer>
+                        </div>
+                    </div>         
+                </div>   
             </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>&copy; WSD.UTS 2017</p> 
+            </footer>
         </div>
     </div>
 </body>

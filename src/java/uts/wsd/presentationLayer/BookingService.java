@@ -1,4 +1,4 @@
-package uts.wsd;
+package uts.wsd.presentationLayer;
 
 import uts.wsd.businessLayer.Flight;
 import java.util.ArrayList;

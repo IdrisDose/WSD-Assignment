@@ -30,7 +30,7 @@
 
                     <div class="panel-body">
                         <div  class="tab-content" id="Flight">
-                            <form  class="form-horizontal" role="form">
+                            <form  class="form-horizontal" role="form" method="POST" action="results.jsp">
                                 <div class="form-group">
                                     <label class="control-label col-sm-4" >Form:</label>
                                     <div class="col-sm-6">
@@ -70,16 +70,15 @@
                                 </div>
                                 
                             </form>
-                            </div>
-                        </div>         
-                    </div>   
-                </div>
-
-                <!-- Footer -->
-                <footer class="footer">
-                    <p>&copy; WSD.UTS 2017</p> 
-                </footer>
+                        </div>
+                    </div>         
+                </div>   
             </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>&copy; WSD.UTS 2017</p> 
+            </footer>
         </div>
     </div>
 </body>
