@@ -24,7 +24,6 @@ public class Users implements Serializable{
     public ArrayList<User> getList() {
         return list;
     }
-    
     public void addUser(User user) {
         list.add(user);
     }
@@ -49,5 +48,13 @@ public class Users implements Serializable{
                 return true; //Return true if details exist
         }
         return false; //Return false if details exist
+    }
+    
+    public User getUserFromId(int id){
+        for(User user: list){
+            if(user.getId() == id)
+                return user;
+        }
+        return null;
     }
 }

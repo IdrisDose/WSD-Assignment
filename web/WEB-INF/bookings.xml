@@ -1,3 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bookings>
+    <booking>
+        <id>1</id>
+        <passenger>1</passenger>
+        <flight>MS7727</flight>
+        <fromcity>Sydney</fromcity>
+        <tocity>Melbourne</tocity>
+        <status>booked</status>
+    </booking>
 </bookings>

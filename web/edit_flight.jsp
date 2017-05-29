@@ -1,8 +1,11 @@
-<%@page import="uts.wsd.dataLayer.*"%>
-<%@page import="uts.wsd.businessLayer.*"%>
-<%@page import="uts.wsd.*"%>
+<%-- 
+    Document   : edit_flight
+    Created on : 29/05/2017, 8:55:08 PM
+    Author     : nzdos_000
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
     <head>
 
@@ -26,7 +29,7 @@
                 <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading clearfix"> 
-                            <p class="panel-title pull-left">Please fill in following information</p>
+                            <p class="panel-title pull-left">Edit Flight</p>
                         </div>
 
                         <div class="panel-body">

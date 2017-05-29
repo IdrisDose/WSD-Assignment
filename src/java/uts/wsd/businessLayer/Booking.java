@@ -17,10 +17,10 @@ public class Booking implements Serializable{
     private int id;
     
     @XmlElement(name = "passenger")
-    private User passenger;
+    private int passenger;
     
     @XmlElement(name = "flight")
-    private Flight flight;
+    private String flight;
     
     @XmlElement(name = "fromcity")
     private String fromCity;
@@ -32,7 +32,7 @@ public class Booking implements Serializable{
     private String bookingStatus;
 
 
-    public Booking(int id, User passenger, Flight flight, String fromCity, String toCity) {
+    public Booking(int id, int passenger, String flight, String fromCity, String toCity) {
         this.passenger = passenger;
         this.flight = flight;
         this.fromCity = fromCity;
@@ -49,19 +49,20 @@ public class Booking implements Serializable{
     public void setId(int id){
         this.id = id;
     }
-    public User getPassenger() {
+
+    public int getPassenger() {
         return passenger;
     }
 
-    public void setPassenger(User passenger) {
+    public void setPassenger(int passenger) {
         this.passenger = passenger;
     }
 
-    public Flight getFlight() {
+    public String getFlight() {
         return flight;
     }
 
-    public void setFlight(Flight flight) {
+    public void setFlight(String flight) {
         this.flight = flight;
     }
 

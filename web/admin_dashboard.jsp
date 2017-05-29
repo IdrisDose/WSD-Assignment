@@ -19,19 +19,156 @@
 
     </head>
     <body>
-
+        
+    <% 
+            String flightPath = application.getRealPath("WEB-INF/flights.xml");
+            String bookingPath = application.getRealPath("WEB-INF/bookings.xml");
+            String userPath = application.getRealPath("WEB-INF/users.xml");
+    %> 
+    
+    <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
+            <jsp:setProperty name="bookApp" property="flightPath" value="<%=flightPath%>"/>
+            <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
+            <jsp:setProperty name="bookApp" property="bookingPath" value="<%=bookingPath%>"/>
+        </jsp:useBean>
     <jsp:include page="includes/nav.jsp"/>
+    
+    <% 
+        Flights flights = null;
+        if(bookApp.getFlights()!=null)
+            flights=bookApp.getFlights();
+        
+        Users users = null;
+        if(bookApp.getUsers()!=null)
+            users = bookApp.getUsers();
+        
+        Bookings bookings = null;
+        if(bookApp.getBookings()!=null)
+            bookings=bookApp.getBookings();
+    %>
+    <div class="container">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix"> 
+                    <p class="panel-title pull-left">Administration Panel</p>
+                </div>
+                <div class="panel-body">
+                    <div id="flights" class="flights"
+                        <h2>Flights</h2>
+                        <form id="edit-flight" method="POST" action="edit_flight.jsp">
+                            <table class="table table-hover">
+                                <thead class="center-text">
+                                    <th>Flight No.</th>
+                                    <th>From City</th>
+                                    <th>To City</th>
+                                    <th>Seats</th>
+                                    <th>Status</th>
+                                    <th>Price</th>
+                                </thead>
+                                <tbody>
+                                <% 
+                                    if(flights!=null)
+                                        for(Flight flight : flights.getList()){
+                                %>
+                                    <tr>
+                                        <td><input type="radio" name="flightid" value="<%=flight.getId()%>"/> <%=flight.getId()%></td>
+                                        <td><%=flight.getFromCity()%></td>
+                                        <td><%=flight.getToCity()%></td>
+                                        <td><%=flight.getNumSeats()%></td>
+                                        <td><%=flight.getStatus()%></td>
+                                        <td>$<%=flight.getPrice()%>0</td>
+                                    </tr>
+                                <% } %>
+                                </tbody>
+                            </table>
+                            <div align="center">
+                                <button type="submit" class="btn btn-default">Edit Flight</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div id="users" class="users">
+                        <form id="edit-user" method="POST" action="edit_user.jsp">
+                            <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                    if(users!=null)
+                                        for(User user : users.getList()){ 
+                                %>
+                                    <tr>
+                                        <td><input type="radio" name="userid" value="<%=user.getId()%>"/> <%=user.getId()%></td>
+                                        <td><%=user.getFullname()%></td>
+                                        <td><%=user.getEmail()%></td>
+                                        <td><%=user.getStatus()%></td>
+                                    </tr>
+                                <%
+                                    }//End of Foreach User
+                                %>
+                            </tbody>
+                        </table>
+                        <div align="center">
+                             <button type="submit" class="btn btn-default">Edit User</button>
+                        </div>
+                        </form>
+                    </div>
+                                
+                    <div id="bookings" class="bookings">
+                        <form id="edit-user" method="POST" action="edit_user.jsp">
+                            <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Passenger Name</th>
+                                    <th>Flight Number</th>
+                                    <th>From City</th>
+                                    <th>To City</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                    if(bookings!=null)
+                                        for(Booking booking : bookings.getList()){ 
 
-    <!--table -->
-    <div class="button">
-        <p class="h1">You are logged in with Admin account </p>	
-        <button type="#" class="btn btn-inverse" onclick="location.href = 'AllBooking.html'">View all booking</button>
-        <p class="space">  </p>
-        <button type="submit" class="btn btn-inverse" onclick="location.href = 'MemberList.html'">Cancel custmer's membership</button>
-    </div>                               
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; WSD.UTS 2017</p> 
-    </footer>	
-</body>
+                                        User user = users.getUserFromId(booking.getPassenger());
+                                        
+                                %>
+                                    <tr>
+                                        <td><input type="radio" name="userid" value="<%=booking.getId()%>"/> <%=booking.getId()%></td>
+                                        <td><%=user.getFullname()%></td>
+                                        <td><%=booking.getFlight()%></td>
+                                        <td><%=booking.getFromCity()%></td>
+                                        <td><%=booking.getToCity()%></td>
+                                        <td><%=booking.getBookingStatus()%></td>
+                                    </tr>
+                                <%
+                                    }//End of Foreach User
+                                %>
+                            </tbody>
+                        </table>
+                        <div align="center">
+                             <button type="submit" class="btn btn-default">Edit Booking</button>
+                        </div>
+                        </form>
+                    </div>
+                    
+                </div>  
+            </div>
+            <!-- Footer -->
+            <footer class="footer">
+                <p>&copy; WSD.UTS 2017</p> 
+            </footer>
+        </div>
+    </div>	
+    </body>
+    <script>
+    </script>
 </html>

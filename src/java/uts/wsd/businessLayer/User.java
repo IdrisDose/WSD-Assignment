@@ -30,15 +30,19 @@ public class User implements Serializable{
     @XmlElement(name = "staff")
     private String staff;
     
+    @XmlElement(name="status")
+    private String status;
+    
     public User(){}
     
-    public User(int id, String fullname, String email, String password, String dob, String staff) {
+    public User(int id, String fullname, String email, String password, String dob, String staff, String status) {
         this.id = id;
         this.fullname = fullname;
         this.email = email;
         this.password = password;
         this.dob = dob;
         this.staff = staff;
+        this.status = status;
     }
     
     public User(String email) {
@@ -82,11 +86,16 @@ public class User implements Serializable{
         return this.staff;
     }
     
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
     @Override
     public String toString() {
         return fullname+"&lt;"+email+"&gt;";
     }
-
-   
-
 }

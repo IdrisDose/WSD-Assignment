@@ -17,7 +17,7 @@ import uts.wsd.businessLayer.Booking;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "bookings")
 public class Bookings implements Serializable {
-    @XmlElement(name = "flight")
+    @XmlElement(name = "booking")
     private ArrayList<Booking> list = new ArrayList<Booking>();
     
     public ArrayList<Booking> getList() {
@@ -42,5 +42,15 @@ public class Bookings implements Serializable {
     
     public Booking getFirstFlight(){
         return list.get(0);
+    }
+    
+    public ArrayList<Booking> getBookingsFromId(int id){
+        ArrayList<Booking> output = new ArrayList<Booking>();
+        for(Booking booking : list){
+            if(booking.getPassenger()==id){
+                output.add(booking);
+            }
+        }
+        return output;
     }
 }

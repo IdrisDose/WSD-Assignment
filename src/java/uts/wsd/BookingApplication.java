@@ -85,7 +85,7 @@ public class BookingApplication {
             
             FileInputStream input = new FileInputStream(this.userPath);            
             this.users = (Users) u.unmarshal(input);
-            input.close();
+            input.close();          
             
         }catch(IOException e){
             System.out.println("File is null; "+ this.userPath);
@@ -165,5 +165,4 @@ public class BookingApplication {
     public void setBookings(Bookings bookings) {
         this.bookings = bookings;
     }
-    
 }

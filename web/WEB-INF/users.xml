@@ -7,5 +7,6 @@
         <password>123</password>
         <dob>09011996</dob>
         <staff>yes</staff>
+        <status>member</status>
     </user>
 </users>
