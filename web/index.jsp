@@ -76,9 +76,10 @@
                                             %>
                                         </select>
                                         
+                                    
                                     </div>
                                 </div>
-
+                                        
                                 <div class="form-group">
                                     <label class="control-label col-sm-4">Departure Date:</label>
                                     <div class="col-sm-6">          

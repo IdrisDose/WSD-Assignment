@@ -12,7 +12,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <% session.invalidate(); %>
+        <% 
+            session.invalidate(); 
+            response.sendRedirect("index.jsp");
+        %>
         <div class="container col-sm-8">
         <div class="col-sm-6 col-sm-offset-6">
             <div class="panel-group">

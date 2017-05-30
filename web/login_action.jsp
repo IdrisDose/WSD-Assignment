@@ -36,6 +36,9 @@
         </jsp:useBean>
         <jsp:include page="includes/nav.jsp"/>
         <div class="container">
+            <div class="col-sm-6 col-sm-offset-2">
+                
+            
             <h1>Login</h1> 
             <%               
                 Users users = bookApp.getUsers();
@@ -43,15 +46,13 @@
                 
                 if(user!=null){ 
                     session.setAttribute("user",user);
-            %>
-                <p>You have already registered, please wait.</p>
-                <p>If you have not been redirected, please <a href="index.jsp">click here</a>.</p>
-                
-                
-            <% } else { %>
+                    response.sendRedirect("search.jsp");
+                 } else { %>
                 <p>I'm sorry, No user matching those credentials exist, please either try logging in again or registering.</p>
                 <p><a class="btn btn-default" href="login.jsp">Login</a> <a class="btn btn-default"href="register.jsp">Register</a></p>
             <% }%>
+        
+            </div>
         </div>
     </body>
 </html>

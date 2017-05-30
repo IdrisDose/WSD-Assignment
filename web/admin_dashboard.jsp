@@ -73,7 +73,7 @@
                                         for(Flight flight : flights.getList()){
                                 %>
                                     <tr>
-                                        <td><input type="radio" name="flightid" value="<%=flight.getId()%>"/> <%=flight.getId()%></td>
+                                        <td><%=flight.getId()%></td>
                                         <td><%=flight.getFromCity()%></td>
                                         <td><%=flight.getToCity()%></td>
                                         <td><%=flight.getNumSeats()%></td>
@@ -83,9 +83,6 @@
                                 <% } %>
                                 </tbody>
                             </table>
-                            <div align="center">
-                                <button type="submit" class="btn btn-default">Edit Flight</button>
-                            </div>
                         </form>
                     </div>
                     
@@ -98,6 +95,7 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Status</th>
+                                    <th>Is Staff?</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -110,6 +108,7 @@
                                         <td><%=user.getFullname()%></td>
                                         <td><%=user.getEmail()%></td>
                                         <td><%=user.getStatus()%></td>
+                                        <td><%=user.isStaff()%></td>
                                     </tr>
                                 <%
                                     }//End of Foreach User
