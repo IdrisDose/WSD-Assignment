@@ -3,8 +3,4 @@ Autumn Semester 2017
 
 
 TODO:
-
-Finish Register Action
-Searches
-Updating XML
-Functionality things.
+Submitted, 64/129 (49.6%);
