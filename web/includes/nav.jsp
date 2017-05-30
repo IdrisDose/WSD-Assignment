@@ -23,7 +23,7 @@
                 <li><a href="search.jsp">Search</a></li>
                 <% if(user!=null){ %>
                     <li><a href="user_dashboard.jsp">View Bookings</a></li>
-                    <% if(user!=null || user.isStaff().equals("yes")){ %>
+                    <% if(user!=null && user.isStaff().equals("yes")){ %>
                         <li><a href="admin_dashboard.jsp">Admin Dashboard</a></li>
                     <% } %>             
                 <% } %>

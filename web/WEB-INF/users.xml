@@ -9,4 +9,22 @@
         <staff>yes</staff>
         <status>member</status>
     </user>
+    <user>
+        <id>2</id>
+        <name>Adam Test</name>
+        <email>adam@test.com</email>
+        <password>123</password>
+        <dob>0000000</dob>
+        <staff>yes</staff>
+        <status>member</status>
+    </user>
+    <user>
+        <id>3</id>
+        <name>U Test</name>
+        <email>u@test.com</email>
+        <password>123</password>
+        <dob>0000000</dob>
+        <staff>yes</staff>
+        <status>member</status>
+    </user>
 </users>

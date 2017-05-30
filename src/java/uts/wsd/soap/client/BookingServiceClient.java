@@ -11,17 +11,22 @@ import uts.wsd.businessLayer.User;
 
 /**
  *
- * @author nzdos_000
+ * @author Idris
  */
 public class BookingServiceClient {
     public static void main(String[] args) {
-        /*BookingService_Service locator = new BookingService_Service();
-        BookingService bookServ = locator.getBookingServicePort();
-        User user = (User) bookServ.login("admin@test.com", "123");
-        System.out.println(user.getName());
-        String fromCity = "sydney";
-        String toCity = "melbourne";
-        printFlights(bookServ, fromCity,toCity);*/
+        //Removed due to some wierd error
+        
+        
+        
+//        BookingService_Service locator = new BookingService_Service();
+//        BookingService bookServ = locator.getBookingServicePort();
+//        
+//        User user = (User) bookServ.login("admin@test.com", "123");
+//        System.out.println(user.getName());
+//        String fromCity = "sydney";
+//        String toCity = "melbourne";
+//        printFlights(bookServ, fromCity,toCity);
     }
 
     private static void printFlights(BookingService bookServ, String fromCity, String toCity) {

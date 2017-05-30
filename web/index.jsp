@@ -19,12 +19,11 @@
     <% 
         String flightPath = application.getRealPath("WEB-INF/flights.xml");
     %>
-    <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
-        <jsp:setProperty name="bookApp" property="flightPath" value="<%=flightPath%>"/>
-    </jsp:useBean> 
+    <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application"></jsp:useBean> 
     <jsp:include page="includes/nav.jsp"/>
     <!-- Setup for Select Input Element -->
     <% 
+        bookApp.populateFlights(flightPath);
         Flights flights = bookApp.getFlights();
     %>
     <!--table -->

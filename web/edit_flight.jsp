@@ -1,9 +1,3 @@
-<%-- 
-    Document   : edit_flight
-    Created on : 29/05/2017, 8:55:08 PM
-    Author     : nzdos_000
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -73,7 +67,7 @@
 
                                         <div class="button">
                                             <button type="submit" class="btn btn-default">Submit</button>
-                                            <a href class="btn btn-default" url="index.jsp">Back</a>
+                                            <a href="index.jsp" class="btn btn-default" >Back</a>
                                         </div>
                                     </div>
                                     <div class="row">

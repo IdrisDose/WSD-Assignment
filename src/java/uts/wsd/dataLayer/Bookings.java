@@ -12,7 +12,7 @@ import uts.wsd.businessLayer.Booking;
 
 /**
  *
- * @author nzdos_000
+ * @author Idris
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "bookings")
@@ -24,11 +24,11 @@ public class Bookings implements Serializable {
         return list;
     }
     
-    public void addFlight(Booking value) {
+    public void addBooking(Booking value) {
         list.add(value);
     }
     
-    public void removeFlight(Booking value) {
+    public void removeBooking(Booking value) {
         list.remove(value);
     }
     

@@ -27,14 +27,15 @@
     %> 
     
     <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
-        <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
     </jsp:useBean>
     <jsp:include page="includes/nav.jsp"/>
     
     <% 
+        User currUser = (User) session.getAttribute("user");
         //Have to put these here incase of null because slow processing?
         bookApp.populateFlights(flightPath); //Does the same thing as bookApp.setFlightPath(flightPath);
         bookApp.populateBookings(bookingPath); //Does the same thing as bookApp.setBookingPath(bookingPath);
+        bookApp.populateUsers(userPath);
         
         Flights flights = null;
         if(bookApp.getFlights()!=null)
@@ -55,6 +56,7 @@
                     <p class="panel-title pull-left">Administration Panel</p>
                 </div>
                 <div class="panel-body">
+                    <% if(currUser!=null&&currUser.isStaff().equals("yes")){ %>
                     <div id="flights" class="flights"
                         <h2>Flights</h2>
                         <form id="edit-flight" method="POST" action="edit_flight.jsp">
@@ -91,7 +93,7 @@
                             <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>User ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Status</th>
@@ -123,11 +125,11 @@
                     </div>
                                 
                     <div id="bookings" class="bookings">
-                        <form id="edit-user" method="POST" action="edit_user.jsp">
+                        <form id="edit-user" method="POST" action="edit_booking.jsp">
                             <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>Booking ID</th>
                                     <th>Passenger Name</th>
                                     <th>Flight Number</th>
                                     <th>From City</th>
@@ -144,7 +146,7 @@
                                         
                                 %>
                                     <tr>
-                                        <td><input type="radio" name="userid" value="<%=booking.getId()%>"/> <%=booking.getId()%></td>
+                                        <td><input type="radio" name="bookingid" value="<%=booking.getId()%>"/> <%=booking.getId()%></td>
                                         <td><%=user.getFullname()%></td>
                                         <td><%=booking.getFlight()%></td>
                                         <td><%=booking.getFromCity()%></td>
@@ -161,7 +163,14 @@
                         </div>
                         </form>
                     </div>
-                    
+                    <% } else { %>
+                        <div class="row">
+                            <p class="col-sm-6 col-sm-offset-2">ERROR! You are not logged in or not an admin!</p>
+                            <div class="col-sm-8 col-sm-offset-2">
+                                 <a href="index.jsp" class="btn btn-default">Back</a>
+                            </div>
+                        </div>
+                    <% } %>
                 </div>  
             </div>
             <!-- Footer -->

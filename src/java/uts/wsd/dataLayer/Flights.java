@@ -12,7 +12,7 @@ import uts.wsd.businessLayer.Flight;
 
 /**
  *
- * @author nzdos_000
+ * @author Idris
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "flights")

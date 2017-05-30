@@ -1,9 +1,3 @@
-<%-- 
-    Document   : logout_action.jsp
-    Created on : 29/05/2017, 5:41:11 PM
-    Author     : nzdos_000
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

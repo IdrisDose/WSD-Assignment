@@ -16,7 +16,7 @@ import javax.xml.bind.Unmarshaller;
 
 /**
  *
- * @author nzdos_000
+ * @author Idris
  */
 public class BookingApplication {
     
@@ -129,6 +129,26 @@ public class BookingApplication {
             
         }catch(IOException e){
             System.out.println("File is null; "+ this.userPath);
+        } catch(JAXBException ex){
+            System.out.println("JAXBException.");
+            ex.printStackTrace();
+        }
+    }
+    
+    public void populateUsers(String path){
+        try{
+            JAXBContext jc = JAXBContext.newInstance(Users.class);
+            Unmarshaller u = jc.createUnmarshaller();
+            
+            if(path==null || path.isEmpty())
+                System.out.println("File path is null");
+            
+            FileInputStream input = new FileInputStream(path);            
+            this.users = (Users) u.unmarshal(input);
+            input.close();          
+            
+        }catch(IOException e){
+            System.out.println("File is null; "+ path);
         } catch(JAXBException ex){
             System.out.println("JAXBException.");
             ex.printStackTrace();

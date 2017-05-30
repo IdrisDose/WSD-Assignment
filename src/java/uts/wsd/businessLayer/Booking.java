@@ -33,11 +33,12 @@ public class Booking implements Serializable{
 
 
     public Booking(int id, int passenger, String flight, String fromCity, String toCity) {
+        this.id = id; //I hate you. - Now you can't be zero.
         this.passenger = passenger;
         this.flight = flight;
         this.fromCity = fromCity;
         this.toCity = toCity;
-        this.bookingStatus = "Booked";
+        this.bookingStatus = "booked";
     }
     
     public Booking(){}

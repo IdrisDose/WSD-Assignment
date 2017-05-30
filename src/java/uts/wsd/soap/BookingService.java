@@ -25,7 +25,7 @@ import uts.wsd.dataLayer.Users;
 
 /**
  *
- * @author nzdos_000
+ * @author Idris
  */
 @WebService(serviceName = "BookingService")
 public class BookingService {

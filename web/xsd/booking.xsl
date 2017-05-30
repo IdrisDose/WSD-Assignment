@@ -33,8 +33,13 @@
     
     <xsl:template match="booking>
         <tr>
-            <xsl:apply-templates/>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </xsl:template>
+    
+    
 
 </xsl:stylesheet>

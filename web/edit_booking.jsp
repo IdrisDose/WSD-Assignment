@@ -1,9 +1,5 @@
-<%-- 
-    Document   : edit_booking
-    Created on : 29/05/2017, 8:54:51 PM
-    Author     : nzdos_000
---%>
-
+<%@page import="uts.wsd.businessLayer.Booking"%>
+<%@page import="uts.wsd.dataLayer.Bookings"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,8 +17,21 @@
 
     </head>
     <body>
+        <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application"></jsp:useBean>
         <jsp:include page="includes/nav.jsp"/>
-
+        <% 
+            String bookingPath = application.getRealPath("WEB-INF/bookings.xml");
+            String userPath = application.getRealPath("WEB-INF/users.xml");
+            
+            bookApp.populateBookings(bookingPath);
+            bookApp.populateUsers(userPath);
+            
+            String bookingID = request.getParameter("bookingid");
+            Bookings bookings = bookApp.getBookings();
+            Booking booking = bookings.getBookingFromID(Integer.parseInt(bookingID));
+            String passenger = bookApp.getUsers().getUserFromId(booking.getPassenger()).getFullname();
+            
+        %>
         <!-- Container -->
         <div class="container col-sm-8">
             <div class="col-sm-6 col-sm-offset-6">
@@ -34,53 +43,69 @@
 
                         <div class="panel-body">
                             <div align="Left" class="tab-content" id="Flight">
-                                <form class="form-horizontal" role="form" action="register_action.jsp" method="POST">
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <label class="control-label col-sm-4" for="firstname">First name:</label>
-                                            <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter your First name">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label col-sm-4" for="lastname">Last name:</label>
-                                            <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter your Last name">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label col-sm-4" for="email">Email:</label>
-                                            <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label col-sm-4" for="pwd">Password:</label>
-                                            <div class="col-sm-6">          
-                                                <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label col-sm-4" for="dob">Date of Birth:</label>
-                                            <div class="col-sm-6">          
-                                                <input type="text" class="form-control" id="dob" name="dob" placeholder="Enter your birth date">
-                                            </div>
-                                        </div>
-
-                                        <div class="button">
-                                            <button type="submit" class="btn btn-default">Submit</button>
-                                            <a href class="btn btn-default" url="index.jsp">Back</a>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4">Booking ID:</label>
+                                        <div class="col-sm-6">
+                                            <p class="form-control"><%= booking.getId()%></p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <p class="center-text">If you already have an account, <a href="login.jsp">click here</a> to login.</p>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4">Passenger:</label>
+                                        <div class="col-sm-6">
+                                            <p class="form-control"><%= passenger%></p>
+                                        </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4">Flight ID:</label>
+                                        <div class="col-sm-6">
+                                            <p class="form-control"><%= booking.getFlight()%></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4">From City:</label>
+                                        <div class="col-sm-6">          
+                                            <p class="form-control"><%= booking.getFromCity() %></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4">To City:</label>
+                                        <div class="col-sm-6">          
+                                            <p class="form-control"><%=booking.getToCity()%></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4" >Status: </label>
+                                        <div class="col-sm-6">          
+                                            <p class="form-control"><%=booking.getBookingStatus()%></p>
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="button">
+                                        <a href="admin_dashboard.jsp" class="btn btn-default">Back</a>
+                                    </div>
+                                </div>
+                                <form action="cancel_booking.jsp" method="POST">
+                                    <% 
+                                        boolean isBooked = booking.getBookingStatus().equals("booked");
+                                        String status = isBooked?"cancelled":"booked";
+                                    %>
+                                    <button type="submit" class="btn btn-default">Change Booking Status</button>
+                                    
+                                    <input type="hidden" name="referer" value="admin_dashboard"/>
+                                    <input type="hidden" name="bookingid" value="<%=booking.getId()%>"/>
+                                    <input type="hidden" name="status" value="<%=status%>"/>
                                 </form>
-
+                                <form>
+                                </form>
                             </div>    
                         </div>                
                     </div>

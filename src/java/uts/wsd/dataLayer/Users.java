@@ -59,4 +59,14 @@ public class Users implements Serializable{
         }
         return null;
     }
+    
+    public User getUserFromEmail(String email){
+        //For each user in the list..
+        for(User user: list){
+            //Check if details exist
+            if (user.getEmail().equals(email))
+                return user; //Return true if details exist
+        }
+        return null; //Return false if details exist
+    }
 }

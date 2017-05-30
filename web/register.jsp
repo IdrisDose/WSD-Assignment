@@ -70,7 +70,7 @@
 
                                         <div class="button">
                                             <button type="submit" class="btn btn-default">Submit</button>
-                                            <a href class="btn btn-default" url="index.jsp">Back</a>
+                                            <a class="btn btn-default" href ="index.jsp">Back</a>
                                         </div>
                                     </div>
                                     <div class="row">

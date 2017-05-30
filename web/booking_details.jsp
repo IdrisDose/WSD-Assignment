@@ -21,7 +21,6 @@
     <% 
         String flightID = request.getParameter("flightid");
         String flightPath = application.getRealPath("WEB-INF/flights.xml");
-        String bookingPath = application.getRealPath("WEB-INF/bookings.xml");
     %>
     <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
         <jsp:setProperty name="bookApp" property="flightPath" value="<%=flightPath%>"/>
@@ -32,25 +31,6 @@
         Flight flight = bookApp.getFlights().getFlightFromID(flightID);
         User user = (User) session.getAttribute("user");
         String pageTitle = "Booking Confirmation";
-        //Populate bookings and store them.
-        
-        bookApp.populateBookings(bookingPath);
-        Bookings bookings = bookApp.getBookings();
-        
-        int bookingID = bookings.getList().size()+1;
-        
-        int userID = user.getId();
-        String flightNum = flightID;
-        String toCity = flight.getToCity();
-        String fromCity = flight.getFromCity();
-        
-        
-        if(user!=null){
-            Booking booking = new Booking(bookingID,userID,flightNum,fromCity,toCity);
-            bookings.addBooking(booking);
-            bookApp.updateBookingsXML(bookings, bookingPath);
-        }
-            
     %>
     <!--table -->
     <div class="container col-sm-8">
@@ -64,7 +44,7 @@
                     </div>
                     <div class="panel-body">
                         <div align="Left" class="tab-content" id="Flight">
-                            
+                            <form action="confirm_booking.jsp" method="POST">
                                 <% 
                                     if(user!=null){
                                     pageTitle = "Thank you for your booking";
@@ -86,8 +66,11 @@
                                     </tbody>
                                 </table>    
                                 <div class="button">
-                                    <a href="user_dashboard.jsp" class="btn btn-default">Confirm</a>
+                                    <input type="hidden" value="<%=flight.getId()%>" name="flightid"/>
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                    <a href="index.jsp" class="btn btn-default" >Back</a>
                                 </div>
+                            </form>
                             <% } else { %>
                             <p class="center-text">You have not logged in, please login to book a flight.</p>
                             <div class="button">

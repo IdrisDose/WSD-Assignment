@@ -1,9 +1,3 @@
-<%-- 
-    Document   : debug
-    Created on : 29/05/2017, 11:49:31 AM
-    Author     : nzdos_000
---%>
-
 <%@page import="uts.wsd.dataLayer.*"%>
 <%@page import="uts.wsd.businessLayer.*"%>
 <%@page import="uts.wsd.*"%>
@@ -75,10 +69,11 @@
                 </ul>
             </div>
             <div class="col-sm-6 col-sm-offset-4">
-                <a href class="btn btn-default" url="index.jsp">Home</a>
-                <a href class="btn btn-default" url="register.jsp">Register</a>
-                <a href class="btn btn-default" url="login.jsp">Login</a>
+                <a href="index.jsp" class="btn btn-default" >Home</a>
+                <a href="register.jsp" class="btn btn-default">Register</a>
+                <a href="login.jsp" class="btn btn-default" >Login</a>
             </div>
+            
         </div>
     </body>
 </html>

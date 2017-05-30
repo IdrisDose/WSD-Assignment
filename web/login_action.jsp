@@ -29,29 +29,39 @@
         String email = request.getParameter("email");
         String pwd = request.getParameter("pwd");
     %>
-    
+
     <body>
-        <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
-            <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
-        </jsp:useBean>
+        <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application"></jsp:useBean>
         <jsp:include page="includes/nav.jsp"/>
+
+        <%
+            bookApp.populateUsers(userPath);
+        %>
         <div class="container">
-            <div class="col-sm-6 col-sm-offset-2">
-                
-            
-            <h1>Login</h1> 
-            <%               
-                Users users = bookApp.getUsers();
-                User user = users.login(email,pwd);
-                
-                if(user!=null){ 
-                    session.setAttribute("user",user);
-                    response.sendRedirect("search.jsp");
-                 } else { %>
-                <p>I'm sorry, No user matching those credentials exist, please either try logging in again or registering.</p>
-                <p><a class="btn btn-default" href="login.jsp">Login</a> <a class="btn btn-default"href="register.jsp">Register</a></p>
-            <% }%>
-        
+            <div class="col-sm-6 col-sm-offset-">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading clearfix"> 
+                            <p class="panel-title pull-left">Login</p>	
+                        </div>
+
+                        <div class="panel-body">            
+                            <%
+                                Users users = bookApp.getUsers();
+                                User user = users.login(email, pwd);
+                                boolean isMember = user.getStatus().equals("member");
+                                
+                                
+                                if (user != null&&isMember) {
+                                    session.setAttribute("user", user);
+                                    response.sendRedirect("search.jsp");
+                                } else { %>
+                                    <p>I'm sorry, No user matching those credentials exist, please either try logging in again or registering.</p>
+                                <p><a class="btn btn-default" href="login.jsp">Login</a> <a class="btn btn-default"href="register.jsp">Register</a></p>
+                            <% }%>
+                        </div>   
+                    </div>
+                </div>
             </div>
         </div>
     </body>

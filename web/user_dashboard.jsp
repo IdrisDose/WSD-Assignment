@@ -44,7 +44,8 @@
             <div class="panel-group">
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix"> 
-                        <p class="panel-title pull-left">Bookings List</p>	
+                        <p class="panel-title"><span class="pull-left">Bookings List</span> <span class="pull-right">Membership status: <%=user.getStatus()%></span></p>
+                       
                     </div>
 
                     <div class="panel-body">   
@@ -52,8 +53,8 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>Departure Location</th>
-                                    <th>Return Location</th>
+                                    <th>Booking ID</th>
+                                    <th>Booking</th>
                                     <th>Departure Date</th>
                                     <th>Return Date</th>
                                     <th>Status</th>
@@ -67,7 +68,7 @@
                                         
                                 %>
                                     <tr>
-                                        <td><input type="radio" name="userid" value="<%=booking.getId()%>"/> <%=booking.getId()%></td>
+                                        <td><input type="radio" name="bookingid" value="<%=booking.getId()%>"/> <%=booking.getId()%></td>
                                         <td><%=booking.getFlight()%></td>
                                         <td><%=booking.getFromCity()%></td>
                                         <td><%=booking.getToCity()%></td>
@@ -82,7 +83,19 @@
                         <div class="button">
                             <button type="submit" class="btn btn-default">Cancel Flight</button>
                             <a href="index.jsp" class="btn btn-default">Back</a>
+                            <input type="hidden" value="user_dashboard" name="referer"/>
+                            <input type="hidden" value="cancelled" name="status"/>
                         </div>
+                        </form>
+                        <!-- Membership options-->   
+                        <form method="POST" action="change_membership.jsp" class="col-sm-2 col-sm-offset-9">
+                            <% 
+                                String status = "no";
+                            %>
+                            <button type="submit" class="btn btn-default">Cancel Membership</button>
+                            <input type="hidden" name="status" value="<%= status%>"/>
+                            <input type="hidden" name="userid" value="<%=user.getId()%>"/>
+                            <input type="hidden" name="referer" value="logout_action"/>
                         </form>
                     </div>
                 </div>               
