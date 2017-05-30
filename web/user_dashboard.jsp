@@ -22,24 +22,25 @@
     <% 
         String flightPath = application.getRealPath("WEB-INF/flights.xml");
         String bookingPath = application.getRealPath("WEB-INF/bookings.xml");
-        String userPath = application.getRealPath("WEB-INF/users.xml");
     %> 
     <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
         <jsp:setProperty name="bookApp" property="flightPath" value="<%=flightPath%>"/>
-        <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
-        <jsp:setProperty name="bookApp" property="bookingPath" value="<%=bookingPath%>"/>
     </jsp:useBean>
     <jsp:include page="includes/nav.jsp"/>
     <% 
+        bookApp.populateBookings(bookingPath);
+        
         User user = (User) session.getAttribute("user");
-        ArrayList<Booking> bookings = bookApp.getBookings().getBookingsFromId(user.getId());
+        Bookings bookings = bookApp.getBookings();
+        ArrayList<Booking> bookingsList = new ArrayList<Booking>();
+        
+        if(bookings!=null)
+            bookingsList = bookings.getBookingsFromId(user.getId());
     %>
 
     <!--table -->
-    <div class="container col-sm-8">
-        <div class="col-sm-6">
-        </div>
-        <div class="col-sm-6">
+    <div class="container col-sm-10">
+        <div class="col-sm-6 col-sm-offset-4">
             <div class="panel-group">
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix"> 
@@ -62,7 +63,7 @@
                             <tbody>
                                 <%
                                     if(bookings!=null)
-                                        for(Booking booking : bookings){ 
+                                        for(Booking booking : bookingsList){ 
                                         
                                 %>
                                     <tr>

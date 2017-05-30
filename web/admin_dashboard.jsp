@@ -27,13 +27,15 @@
     %> 
     
     <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
-            <jsp:setProperty name="bookApp" property="flightPath" value="<%=flightPath%>"/>
-            <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
-            <jsp:setProperty name="bookApp" property="bookingPath" value="<%=bookingPath%>"/>
-        </jsp:useBean>
+        <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
+    </jsp:useBean>
     <jsp:include page="includes/nav.jsp"/>
     
     <% 
+        //Have to put these here incase of null because slow processing?
+        bookApp.populateFlights(flightPath); //Does the same thing as bookApp.setFlightPath(flightPath);
+        bookApp.populateBookings(bookingPath); //Does the same thing as bookApp.setBookingPath(bookingPath);
+        
         Flights flights = null;
         if(bookApp.getFlights()!=null)
             flights=bookApp.getFlights();
@@ -116,6 +118,7 @@
                         </table>
                         <div align="center">
                              <button type="submit" class="btn btn-default">Edit User</button>
+                             <input type="hidden" value="yes" name="submitted"/>
                         </div>
                         </form>
                     </div>

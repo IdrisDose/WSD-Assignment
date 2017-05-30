@@ -18,11 +18,9 @@
     <body>
     <% 
         String flightPath = application.getRealPath("WEB-INF/flights.xml");
-        String userPath = application.getRealPath("WEB-INF/users.xml");
     %>
     <jsp:useBean id="bookApp" class="uts.wsd.BookingApplication" scope="application">
         <jsp:setProperty name="bookApp" property="flightPath" value="<%=flightPath%>"/>
-        <jsp:setProperty name="bookApp" property="userPath" value="<%=userPath%>"/>
     </jsp:useBean> 
     <jsp:include page="includes/nav.jsp"/>
     <!-- Setup for Select Input Element -->

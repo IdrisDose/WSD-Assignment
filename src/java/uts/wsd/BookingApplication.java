@@ -74,6 +74,46 @@ public class BookingApplication {
         }
     }
     
+    public void populateBookings(String path){
+        try{
+            JAXBContext jc = JAXBContext.newInstance(Bookings.class);
+            Unmarshaller u = jc.createUnmarshaller();
+            if(path==null || path.isEmpty())
+                System.out.println("File path is null");
+            
+            FileInputStream input = new FileInputStream(path);
+            bookings = (Bookings) u.unmarshal(input);
+            input.close();
+            
+        } catch(IOException e){
+            System.out.println("File is null; "+ path);
+        } catch(JAXBException ex){
+            System.out.println("JAXBException.");
+            ex.printStackTrace();
+        }
+    }
+    
+    public void populateFlights(String path){
+        try{
+            // Create the unmarshaller  
+            JAXBContext jc = JAXBContext.newInstance(Flights.class);
+            Unmarshaller u = jc.createUnmarshaller();
+            
+            if(path ==null || path.isEmpty()){
+                System.out.println("Path is null");
+            }
+            // Now unmarshal the object from the file
+            FileInputStream fin = new FileInputStream(path);
+            flights = (Flights) u.unmarshal(fin);
+            fin.close();
+            
+        } catch(IOException e){
+            System.out.println("File is null; "+ path);
+        } catch(JAXBException ex){
+            System.out.println("JAXBException.");
+        }
+    }
+    
     public void setUserPath(String path){
         this.userPath = path;
         try{
